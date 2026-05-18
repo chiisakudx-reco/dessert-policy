@@ -1,264 +1,151 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>プライバシーポリシー — Dessert</title>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #fdf6ee;
-      --pink: #f2a7b0;
-      --pink-light: #fce8eb;
-      --brown: #3d2b1f;
-      --brown-light: #7a5c4e;
-      --accent: #e07a85;
-      --border: #e8d5c4;
+      --bg: #fffdf9;
+      --text: #2d2d2d;
+      --muted: #666;
+      --accent: #e8607a;
+      --border: #e8e0d8;
+      --card: #fff8f2;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: var(--cream);
-      color: var(--brown);
-      font-family: 'DM Sans', 'Shippori Mincho', sans-serif;
-      line-height: 1.8;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 0 16px;
     }
-
-    /* Header */
     header {
-      background: var(--brown);
-      color: var(--cream);
-      padding: 48px 24px 40px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
+      padding: 48px 0 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
     }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 200px; height: 200px;
-      background: var(--pink);
-      border-radius: 50%;
-      opacity: 0.15;
-    }
-
-    header::after {
-      content: '';
-      position: absolute;
-      bottom: -40px; left: -40px;
-      width: 140px; height: 140px;
-      background: var(--accent);
-      border-radius: 50%;
-      opacity: 0.1;
-    }
-
-    .app-name {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--pink);
-      margin-bottom: 10px;
-    }
-
-    header h1 {
-      font-family: 'Shippori Mincho', serif;
-      font-size: clamp(22px, 5vw, 32px);
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      position: relative;
-      z-index: 1;
-    }
-
-    .updated {
-      margin-top: 12px;
-      font-size: 12px;
-      color: var(--border);
+    header .app-name {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 8px;
       letter-spacing: 0.1em;
-      position: relative;
-      z-index: 1;
     }
-
-    /* Language toggle */
-    .lang-toggle {
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    header .meta {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .lang-switch {
+      margin-top: 16px;
       display: flex;
       justify-content: center;
-      gap: 0;
-      margin: 32px auto 0;
-      width: fit-content;
-      border: 1.5px solid var(--border);
-      border-radius: 100px;
-      overflow: hidden;
-      background: white;
+      gap: 12px;
     }
-
-    .lang-btn {
-      padding: 8px 28px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
-      background: transparent;
-      color: var(--brown-light);
-      transition: all 0.2s;
-      letter-spacing: 0.05em;
+    .lang-switch a {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 4px 14px;
+      border-radius: 20px;
     }
-
-    .lang-btn.active {
-      background: var(--brown);
-      color: var(--cream);
-    }
-
-    /* Main content */
+    .lang-switch a:hover { background: var(--accent); color: #fff; }
     main {
       max-width: 720px;
       margin: 0 auto;
-      padding: 56px 24px 80px;
+      padding-bottom: 80px;
     }
-
-    .section {
-      margin-bottom: 48px;
-    }
-
+    section { margin-bottom: 48px; }
     .section-label {
-      display: inline-block;
-      background: var(--pink-light);
-      color: var(--accent);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 100px;
-      margin-bottom: 14px;
-    }
-
-    h2 {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 20px;
+      font-size: 0.75rem;
       font-weight: 600;
-      color: var(--brown);
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
       margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
     }
-
-    p {
-      font-size: 15px;
-      color: var(--brown-light);
-      margin-bottom: 12px;
-    }
-
-    .highlight-box {
-      background: white;
-      border: 1.5px solid var(--border);
-      border-left: 4px solid var(--pink);
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin: 20px 0;
-    }
-
-    .highlight-box p {
-      margin: 0;
-      font-size: 14px;
-    }
-
+    p { margin-bottom: 12px; color: var(--text); }
+    strong { color: var(--text); }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 14px;
+      font-size: 0.9rem;
+      margin-top: 12px;
     }
-
     th {
-      background: var(--brown);
-      color: var(--cream);
-      padding: 10px 16px;
+      background: var(--card);
       text-align: left;
-      font-weight: 400;
-      letter-spacing: 0.05em;
+      padding: 10px 12px;
+      font-weight: 600;
+      border-bottom: 2px solid var(--border);
     }
-
-    th:first-child { border-radius: 6px 0 0 0; }
-    th:last-child { border-radius: 0 6px 0 0; }
-
     td {
-      padding: 10px 16px;
+      padding: 10px 12px;
       border-bottom: 1px solid var(--border);
-      color: var(--brown-light);
       vertical-align: top;
     }
-
     tr:last-child td { border-bottom: none; }
-    tr:nth-child(even) td { background: #faf5f0; }
-
-    .contact-box {
-      background: var(--brown);
-      color: var(--cream);
-      border-radius: 12px;
-      padding: 28px 32px;
-      margin-top: 24px;
+    code {
+      background: var(--card);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-family: monospace;
     }
-
-    .contact-box h3 {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 17px;
-      margin-bottom: 12px;
-      color: var(--pink);
+    .divider {
+      border: none;
+      border-top: 2px dashed var(--border);
+      margin: 60px 0;
     }
-
-    .contact-box p {
-      color: #c8b8ae;
-      font-size: 14px;
-      margin: 0;
-    }
-
-    /* Footer */
     footer {
       text-align: center;
-      padding: 32px 24px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 24px 0 40px;
       border-top: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--brown-light);
-      letter-spacing: 0.05em;
     }
-
-    /* Language sections */
-    .ja-content, .en-content { display: none; }
-    .ja-content.active, .en-content.active { display: block; }
   </style>
 </head>
 <body>
 
 <header>
   <div class="app-name">Dessert — Account Manager</div>
-  <h1 id="header-title">プライバシーポリシー</h1>
-  <div class="updated" id="header-updated">最終更新: 2026年5月17日</div>
-  <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('ja')">日本語</button>
-    <button class="lang-btn" onclick="setLang('en')">English</button>
+  <h1>プライバシーポリシー</h1>
+  <div class="meta">最終更新: 2026年5月19日</div>
+  <div class="lang-switch">
+    <a href="#ja">日本語</a>
+    <a href="#en">English</a>
   </div>
 </header>
 
 <main>
 
-  <!-- 日本語 -->
-  <div class="ja-content active">
+  <!-- ========== 日本語 ========== -->
+  <div id="ja">
 
-    <div class="section">
+    <section>
       <div class="section-label">はじめに</div>
       <h2>基本方針</h2>
-      <div class="highlight-box">
-        <p>Dessert（以下「本アプリ」）は、<strong>すべてのデータをお使いのデバイス内にのみ保存します。</strong>外部サーバーへの送信・クラウドへの保存は一切行いません。インターネット接続も不要です。</p>
-      </div>
+      <p>Dessert（以下「本アプリ」）は、<strong>すべてのデータをお使いのデバイス内にのみ保存します。</strong>外部サーバーへの送信・クラウドへの保存は一切行いません。インターネット接続も不要です。</p>
       <p>本アプリの開発者 chiisakudx（以下「開発者」）は、ユーザーのプライバシーを最大限に尊重します。本ポリシーは、本アプリがどのようにデータを扱うかを説明するものです。</p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">データの取り扱い</div>
       <h2>収集・保存するデータ</h2>
       <p>本アプリが保存するデータはすべてデバイス内に留まります。開発者がアクセスすることはできません。</p>
@@ -266,156 +153,127 @@
         <tr><th>データの種類</th><th>保存場所</th><th>用途</th></tr>
         <tr><td>アカウント・サービス情報</td><td>デバイス内 SQLite</td><td>名前・メモ・料金・アイコンの管理</td></tr>
         <tr><td>パスワード本体</td><td>暗号化ストレージ（AES-256）</td><td>安全なパスワード保管</td></tr>
+        <tr><td>パスワード履歴</td><td>SQLite（参照キーのみ）＋ 暗号化ストレージ</td><td>最大3世代分の履歴管理</td></tr>
         <tr><td>テーマ・言語設定</td><td>SharedPreferences</td><td>アプリ設定の保持</td></tr>
         <tr><td>背景画像</td><td>アプリドキュメントディレクトリ</td><td>Dessertテーマのカスタマイズ</td></tr>
+        <tr><td>おやつ代を支援プランフラグ</td><td>SharedPreferences</td><td>有料プランの適用状態管理</td></tr>
       </table>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">外部通信</div>
       <h2>インターネット・外部送信について</h2>
       <p>本アプリは <code>INTERNET</code> パーミッションを使用しておらず、外部サーバーへの通信経路はありません。</p>
       <p>唯一の例外として、ユーザーが明示的にバックアップのエクスポート操作を行った場合、OS標準のシェアシートを通じてファイルを共有できます。この操作はユーザーの意思によるものであり、開発者はそのデータにアクセスしません。</p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">セキュリティ</div>
-      <h2>パスワードの暗号化</h2>
+      <h2>パスワードの暗号化・認証</h2>
       <p>パスワードは Android の EncryptedSharedPreferences（AES-256）を使用して暗号化保存されます。アプリ画面上で平文表示されることはありません。</p>
-      <p>生体認証（指紋・顔認証）または PIN によるロックで、第三者のアクセスからデータを保護します。</p>
-    </div>
+      <p>生体認証（指紋・顔認証）または PIN によるロックで、第三者のアクセスからデータを保護します。生体認証が利用できない場合は PIN にフォールバックします。PIN を忘れた場合はデバイスパスコードによる本人確認後に再設定できます。</p>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">第三者提供</div>
       <h2>データの第三者提供</h2>
-      <div class="highlight-box">
-        <p>開発者はユーザーデータを第三者に提供・販売・共有することは一切ありません。</p>
-      </div>
-    </div>
+      <p>開発者はユーザーデータを第三者に提供・販売・共有することは一切ありません。</p>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">サブスクリプション</div>
-      <h2>開発応援プランの返金・解約について</h2>
-      <p>開発応援プランはGoogle Play / App Storeを通じたサブスクリプションです。</p>
-      <div class="highlight-box">
-        <p>返金はGoogle Play / App Storeの各ストアポリシーに準じます。開発者による個別の返金対応は行っておりません。</p>
-      </div>
+      <h2>おやつ代を支援プランの返金・解約について</h2>
+      <p>おやつ代を支援プランはGoogle Play / App Storeを通じたサブスクリプションです。返金はGoogle Play / App Storeの各ストアポリシーに準じます。開発者による個別の返金対応は行っておりません。</p>
       <table>
         <tr><th>項目</th><th>内容</th></tr>
         <tr><td>解約方法</td><td>Google Play / App Storeのサブスクリプション管理画面から解約できます</td></tr>
-        <tr><td>解約後の利用</td><td>解約後は次回更新日をもって開発応援プランの機能が無効になります</td></tr>
+        <tr><td>解約後の利用</td><td>解約後は次回更新日をもっておやつ代を支援プランの機能が無効になります</td></tr>
         <tr><td>返金</td><td>各ストアのポリシーに従います。開発者への直接の返金申請はお受けできません</td></tr>
       </table>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">お問い合わせ</div>
       <h2>連絡先</h2>
-      <div class="contact-box">
-        <h3>chiisakudx</h3>
-        <p>本ポリシーに関するご質問は、Google Play ストアのアプリページよりお問い合わせください。</p>
-      </div>
-    </div>
+      <p><strong>chiisakudx</strong></p>
+      <p>本ポリシーに関するご質問は、Google Play ストアのアプリページよりお問い合わせください。</p>
+    </section>
 
   </div>
 
-  <!-- English -->
-  <div class="en-content">
+  <hr class="divider" />
 
-    <div class="section">
+  <!-- ========== English ========== -->
+  <div id="en">
+
+    <section>
       <div class="section-label">Overview</div>
       <h2>Our Privacy Commitment</h2>
-      <div class="highlight-box">
-        <p><strong>All data in Dessert is stored exclusively on your device.</strong> No data is transmitted to external servers or stored in the cloud. No internet connection is required.</p>
-      </div>
+      <p><strong>All data in Dessert is stored exclusively on your device.</strong> No data is transmitted to external servers or stored in the cloud. No internet connection is required.</p>
       <p>chiisakudx ("the developer") is committed to protecting your privacy. This policy explains how Dessert handles your data.</p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">Data Storage</div>
       <h2>What We Store</h2>
       <p>All data saved by this app remains on your device. The developer has no access to it.</p>
       <table>
         <tr><th>Data Type</th><th>Storage Location</th><th>Purpose</th></tr>
-        <tr><td>Account & service info</td><td>On-device SQLite</td><td>Managing names, notes, costs, icons</td></tr>
+        <tr><td>Account &amp; service info</td><td>On-device SQLite</td><td>Managing names, notes, costs, icons</td></tr>
         <tr><td>Passwords</td><td>Encrypted storage (AES-256)</td><td>Secure password keeping</td></tr>
-        <tr><td>Theme & language settings</td><td>SharedPreferences</td><td>App preferences</td></tr>
+        <tr><td>Password history</td><td>SQLite (reference keys) + Encrypted storage</td><td>Up to 3 generations of history</td></tr>
+        <tr><td>Theme &amp; language settings</td><td>SharedPreferences</td><td>App preferences</td></tr>
         <tr><td>Background image</td><td>App documents directory</td><td>Dessert theme customization</td></tr>
+        <tr><td>Buy Me a Coffee plan flag</td><td>SharedPreferences</td><td>Subscription status management</td></tr>
       </table>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">Network</div>
-      <h2>Internet & External Transmission</h2>
+      <h2>Internet &amp; External Transmission</h2>
       <p>Dessert does not use the <code>INTERNET</code> permission and has no connection to any external server.</p>
       <p>The only exception: when you explicitly choose to export a backup, the file is shared via the OS share sheet. This is entirely user-initiated, and the developer never receives or accesses this data.</p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">Security</div>
-      <h2>Password Encryption</h2>
+      <h2>Password Encryption &amp; Authentication</h2>
       <p>Passwords are encrypted using Android's EncryptedSharedPreferences (AES-256). They are never displayed in plain text within the app.</p>
-      <p>Biometric authentication (fingerprint, face recognition) or PIN lock protects your data from unauthorized access.</p>
-    </div>
+      <p>Biometric authentication (fingerprint, face recognition) or PIN lock protects your data from unauthorized access. If biometric authentication is unavailable, the app falls back to PIN. If you forget your PIN, you can reset it by verifying your device passcode.</p>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">Third Parties</div>
       <h2>Data Sharing</h2>
-      <div class="highlight-box">
-        <p>The developer does not sell, share, or provide user data to any third party — ever.</p>
-      </div>
-    </div>
+      <p>The developer does not sell, share, or provide user data to any third party — ever.</p>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">Subscription</div>
-      <h2>Refund & Cancellation Policy</h2>
-      <p>The Development Support Plan is offered as a subscription through Google Play or the App Store.</p>
-      <div class="highlight-box">
-        <p>Refunds are handled in accordance with the refund policy of Google Play or the App Store. The developer does not process refunds directly.</p>
-      </div>
+      <h2>Buy Me a Coffee — Refund &amp; Cancellation</h2>
+      <p>The Buy Me a Coffee plan is offered as a subscription through Google Play or the App Store. Refunds are handled in accordance with the refund policy of Google Play or the App Store. The developer does not process refunds directly.</p>
       <table>
         <tr><th>Item</th><th>Details</th></tr>
         <tr><td>How to cancel</td><td>Cancel anytime through your Google Play or App Store subscription settings</td></tr>
         <tr><td>After cancellation</td><td>Access to plan features will end at the next billing date</td></tr>
         <tr><td>Refunds</td><td>Subject to each store's refund policy. Direct refund requests to the developer cannot be accommodated</td></tr>
       </table>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <div class="section-label">Contact</div>
       <h2>Get in Touch</h2>
-      <div class="contact-box">
-        <h3>chiisakudx</h3>
-        <p>For questions about this policy, please contact us through the app's page on Google Play Store.</p>
-      </div>
-    </div>
+      <p><strong>chiisakudx</strong></p>
+      <p>For questions about this policy, please contact us through the app's page on Google Play Store.</p>
+    </section>
 
   </div>
 
 </main>
 
 <footer>
-  &copy; 2026 chiisakudx — Dessert
+  © 2026 chiisakudx — Dessert
 </footer>
-
-<script>
-  function setLang(lang) {
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.ja-content, .en-content').forEach(el => el.classList.remove('active'));
-
-    if (lang === 'ja') {
-      document.querySelector('.lang-btn:first-child').classList.add('active');
-      document.querySelector('.ja-content').classList.add('active');
-      document.getElementById('header-title').textContent = 'プライバシーポリシー';
-      document.getElementById('header-updated').textContent = '最終更新: 2026年5月17日';
-    } else {
-      document.querySelector('.lang-btn:last-child').classList.add('active');
-      document.querySelector('.en-content').classList.add('active');
-      document.getElementById('header-title').textContent = 'Privacy Policy';
-      document.getElementById('header-updated').textContent = 'Last updated: May 17, 2026';
-    }
-  }
-</script>
 
 </body>
 </html>
