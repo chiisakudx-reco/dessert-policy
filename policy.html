@@ -154,8 +154,16 @@
       border: 1px solid var(--border);
       padding: 4px 14px;
       border-radius: 20px;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
     }
     .lang-switch a:hover { background: var(--border); }
+    .lang-switch a.lang-active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .lang-en { display: none; }
+    .lang-divider { display: none; }
 
     /* ==============================
        本文
@@ -333,8 +341,8 @@
       <div class="app-name">Dessert</div>
       <h1>ポリシー・よくある質問</h1>
       <div class="lang-switch">
-        <a href="#ja-privacy">日本語</a>
-        <a href="#en-privacy">English</a>
+        <a href="#" id="btn-ja" class="lang-active" onclick="setLang('ja'); return false;">日本語</a>
+        <a href="#" id="btn-en" onclick="setLang('en'); return false;">English</a>
       </div>
     </header>
 
@@ -349,7 +357,7 @@
     <div class="meta">最終更新: 2026年6月3日</div>
   </div>
 
-  <div id="ja-privacy">
+  <div id="ja-privacy" class="lang-ja">
 
     <section>
       <div class="section-label">はじめに</div>
@@ -431,9 +439,9 @@
 
   </div>
 
-  <hr class="divider" />
+  <hr class="lang-divider" />
 
-  <div id="en-privacy">
+  <div id="en-privacy" class="lang-en">
 
     <section>
       <div class="section-label">Overview</div>
@@ -526,7 +534,7 @@
     <div class="meta">最終更新: 2026年5月24日</div>
   </div>
 
-  <div id="ja-terms">
+  <div id="ja-terms" class="lang-ja">
 
     <section>
       <div class="section-label">はじめに</div>
@@ -624,9 +632,9 @@
 
   </div>
 
-  <hr class="divider" />
+  <hr class="lang-divider" />
 
-  <div id="en-terms">
+  <div id="en-terms" class="lang-en">
 
     <section>
       <div class="section-label">Introduction</div>
@@ -735,7 +743,7 @@
     <div class="meta">最終更新: 2026年6月3日</div>
   </div>
 
-  <div id="ja-faq">
+  <div id="ja-faq" class="lang-ja">
 
     <section>
       <div class="section-label">データ・プライバシー</div>
@@ -805,8 +813,8 @@
             <tr><td>パスワードの保存・管理</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>パスワード自動生成</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>タグランチャー（閲覧・起動）</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>お気に入り・あまり使わないセクション</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>タグの作成・設定</td><td>&#10007;</td><td>&#10003;</td></tr>
-            <tr><td>お気に入り・あまり使わないセクション</td><td>&#10007;</td><td>&#10003;</td></tr>
             <tr><td>コスト管理（グラフ・集計）</td><td>&#10007;</td><td>&#10003;</td></tr>
             <tr><td>バックアップ・復元</td><td>&#10007;</td><td>&#10003;</td></tr>
             <tr><td>カスタム背景画像</td><td>&#10007;</td><td>&#10003;</td></tr>
@@ -842,9 +850,9 @@
 
   </div>
 
-  <hr class="divider" />
+  <hr class="lang-divider" />
 
-  <div id="en-faq">
+  <div id="en-faq" class="lang-en">
 
     <section>
       <div class="section-label">Data &amp; Privacy</div>
@@ -914,8 +922,8 @@
             <tr><td>Password save &amp; management</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>Password auto-generation</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>Tag Launcher (view &amp; launch)</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>Favorites &amp; Rarely Used sections</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>Tag creation &amp; assignment</td><td>&#10007;</td><td>&#10003;</td></tr>
-            <tr><td>Favorites &amp; Rarely Used sections</td><td>&#10007;</td><td>&#10003;</td></tr>
             <tr><td>Cost management (graphs &amp; totals)</td><td>&#10007;</td><td>&#10003;</td></tr>
             <tr><td>Backup &amp; restore</td><td>&#10007;</td><td>&#10003;</td></tr>
             <tr><td>Custom background image</td><td>&#10007;</td><td>&#10003;</td></tr>
@@ -963,9 +971,31 @@
 </div><!-- /#layout -->
 
 <script>
-  // 現在表示中のセクションをナビに反映
-  const sections = document.querySelectorAll('.page-section');
-  const navLinks = document.querySelectorAll('#sidebar a[data-section], #mobile-tabs a[data-section]');
+  // ---- 言語切り替え ----
+  function setLang(lang) {
+    var isEn = lang === 'en';
+    document.querySelectorAll('.lang-ja').forEach(function(el) {
+      el.style.display = isEn ? 'none' : '';
+    });
+    document.querySelectorAll('.lang-en').forEach(function(el) {
+      el.style.display = isEn ? '' : 'none';
+    });
+    document.getElementById('btn-ja').classList.toggle('lang-active', !isEn);
+    document.getElementById('btn-en').classList.toggle('lang-active', isEn);
+    try { localStorage.setItem('dessert-policy-lang', lang); } catch(e) {}
+  }
+
+  // 保存済み言語を復元
+  (function() {
+    try {
+      var saved = localStorage.getItem('dessert-policy-lang');
+      if (saved === 'en') setLang('en');
+    } catch(e) {}
+  })();
+
+  // ---- セクションナビ アクティブ追従 ----
+  var sections = document.querySelectorAll('.page-section');
+  var navLinks = document.querySelectorAll('#sidebar a[data-section], #mobile-tabs a[data-section]');
 
   function setActive(id) {
     navLinks.forEach(function(a) {
@@ -973,19 +1003,13 @@
     });
   }
 
-  // 初期状態：最初のセクションをアクティブに
   setActive('privacy');
 
-  const observer = new IntersectionObserver(function(entries) {
+  var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        setActive(entry.target.id);
-      }
+      if (entry.isIntersecting) setActive(entry.target.id);
     });
-  }, {
-    rootMargin: '-10% 0px -80% 0px',
-    threshold: 0
-  });
+  }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
 
   sections.forEach(function(s) { observer.observe(s); });
 </script>
