@@ -975,10 +975,10 @@
   function setLang(lang) {
     var isEn = lang === 'en';
     document.querySelectorAll('.lang-ja').forEach(function(el) {
-      el.style.display = isEn ? 'none' : '';
+      el.style.display = isEn ? 'none' : 'block';
     });
     document.querySelectorAll('.lang-en').forEach(function(el) {
-      el.style.display = isEn ? '' : 'none';
+      el.style.display = isEn ? 'block' : 'none';
     });
     document.getElementById('btn-ja').classList.toggle('lang-active', !isEn);
     document.getElementById('btn-en').classList.toggle('lang-active', isEn);
