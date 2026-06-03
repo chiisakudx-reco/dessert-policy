@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dessert — ポリシー・よくある質問</title>
+  <style>
+    :root {
+      --bg: #fffdf9;
+      --text: #2d2d2d;
+      --muted: #666;
+      --accent: #e8607a;
+      --border: #e8e0d8;
+      --card: #fff8f2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 0 16px;
+    }
+    header {
+      text-align: center;
+      padding: 48px 0 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+    header .app-name {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      letter-spacing: 0.1em;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    /* セクションナビゲーション */
+    .section-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0 8px;
+    }
+    .section-nav a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1.5px solid var(--accent);
+      padding: 6px 18px;
+      border-radius: 20px;
+      transition: background 0.15s;
+    }
+    .section-nav a:hover { background: var(--accent); color: #fff; }
+    .lang-switch {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .lang-switch a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+    .lang-switch a:hover { background: var(--border); }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding-bottom: 80px;
+    }
+    /* 各セクションのタイトルバー */
+    .page-section {
+      scroll-margin-top: 24px;
+    }
+    .page-section-header {
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      padding: 14px 20px;
+      margin: 48px 0 32px;
+      border-radius: 0 8px 8px 0;
+    }
+    .page-section-header h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-bottom: none;
+      margin-bottom: 2px;
+      padding-bottom: 0;
+    }
+    .page-section-header .meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    section { margin-bottom: 40px; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+    p { margin-bottom: 12px; color: var(--text); }
+    ul {
+      margin: 0 0 12px 20px;
+      color: var(--text);
+    }
+    ul li { margin-bottom: 6px; }
+    strong { color: var(--text); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+    th {
+      background: var(--card);
+      text-align: left;
+      padding: 10px 12px;
+      font-weight: 600;
+      border-bottom: 2px solid var(--border);
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    code {
+      background: var(--card);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-family: monospace;
+    }
+    .notice {
+      background: var(--card);
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .faq-a table { font-size: 0.85rem; }
+    .divider {
+      border: none;
+      border-top: 2px dashed var(--border);
+      margin: 40px 0;
+    }
+    .back-to-top {
+      display: block;
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 8px;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 24px 0 40px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="app-name">Dessert</div>
+  <h1>ポリシー・よくある質問</h1>
+  <nav class="section-nav">
+    <a href="#privacy">プライバシーポリシー</a>
+    <a href="#terms">利用規約</a>
+    <a href="#faq">よくある質問</a>
+  </nav>
+  <div class="lang-switch">
+    <a href="#ja-privacy">日本語</a>
+    <a href="#en-privacy">English</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- プライバシーポリシー                                          -->
+<!-- ============================================================ -->
+<div id="privacy" class="page-section">
+  <div class="page-section-header">
+    <h2>プライバシーポリシー</h2>
+    <div class="meta">最終更新: 2026年6月3日</div>
+  </div>
+
+  <div id="ja-privacy">
+
+    <section>
+      <div class="section-label">はじめに</div>
+      <h3>基本方針</h3>
+      <p>Dessert（以下「本アプリ」）は、<strong>すべてのデータをお使いのデバイス内にのみ保存します。</strong>外部サーバーへの送信・クラウドへの保存は一切行いません。通常の使用においてインターネット接続は不要です。</p>
+      <p>本アプリの開発者 chiisakudx（以下「開発者」）は、ユーザーのプライバシーを最大限に尊重します。本ポリシーは、本アプリがどのようにデータを扱うかを説明するものです。</p>
+    </section>
+
+    <section>
+      <div class="section-label">データの取り扱い</div>
+      <h3>収集・保存するデータ</h3>
+      <p>本アプリが保存するデータはすべてデバイス内に留まります。開発者がアクセスすることはできません。</p>
+      <table>
+        <tr><th>データの種類</th><th>保存場所</th><th>用途</th></tr>
+        <tr><td>アカウント・サービス情報</td><td>デバイス内 SQLite</td><td>名前・メモ・料金・アイコンの管理</td></tr>
+        <tr><td>パスワード本体</td><td>暗号化ストレージ（AES-256）</td><td>安全なパスワード保管</td></tr>
+        <tr><td>パスワード履歴</td><td>SQLite（参照キーのみ）＋ 暗号化ストレージ</td><td>最大3世代分の履歴管理</td></tr>
+        <tr><td>テーマ・言語設定</td><td>SharedPreferences</td><td>アプリ設定の保持</td></tr>
+        <tr><td>背景画像</td><td>アプリドキュメントディレクトリ</td><td>Dessertテーマのカスタマイズ（有料機能）</td></tr>
+        <tr><td>サブスクリプション購入状態</td><td>SharedPreferences</td><td>おやつ代を支援プランの適用状態管理</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-label">外部通信</div>
+      <h3>インターネット・外部送信について</h3>
+      <p>本アプリは <code>INTERNET</code> パーミッションを使用しておらず、開発者が管理するサーバーへの通信経路はありません。</p>
+      <p>ただし、以下の場合に限りデバイスが外部と通信します。</p>
+      <table>
+        <tr><th>状況</th><th>通信先</th></tr>
+        <tr><td>おやつ代を支援プランのご購入時</td><td>Google Play 課金システム（Google のプライバシーポリシーが適用されます）</td></tr>
+        <tr><td>バックアップのエクスポート操作時</td><td>ユーザーが選択した共有先（OS標準シェアシート経由・ユーザーの意思による操作）</td></tr>
+        <tr><td>登録したアカウントのURLを開く操作時</td><td>ユーザーが登録したURL（ブラウザ経由・ユーザーの意思による操作）</td></tr>
+      </table>
+      <p style="margin-top:12px;">いずれもユーザーが能動的に操作した場合のみ発生し、開発者はその内容にアクセスしません。</p>
+    </section>
+
+    <section>
+      <div class="section-label">セキュリティ</div>
+      <h3>パスワードの暗号化・認証</h3>
+      <p>パスワードは Android の EncryptedSharedPreferences（AES-256）を使用して暗号化保存されます。アプリ画面上で平文表示されることはありません。</p>
+      <p>PINコードによるアプリロックで、第三者のアクセスからデータを保護します。PINはお使いのデバイスのロック画面とは独立して設定されます。</p>
+      <p><strong>PINを忘れた場合：</strong>アプリ内の「PINを忘れた場合」から、アプリ内のすべてのデータを削除してリセットすることができます。この操作は取り消せません。重要なデータは事前にエクスポート機能でバックアップすることを強く推奨します。</p>
+    </section>
+
+    <section>
+      <div class="section-label">写真・ファイルへのアクセス</div>
+      <h3>権限の利用目的</h3>
+      <table>
+        <tr><th>権限</th><th>利用目的</th></tr>
+        <tr><td>READ_MEDIA_IMAGES（Android 13+）<br>READ_EXTERNAL_STORAGE（Android 12以下）</td><td>Dessertテーマのカスタム背景画像を端末のフォトライブラリから選択するためにのみ使用します。選択した画像はデバイス内にのみ保存され、外部に送信されることはありません。</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-label">第三者提供</div>
+      <h3>データの第三者提供</h3>
+      <p>開発者はユーザーデータを第三者に提供・販売・共有することは一切ありません。</p>
+    </section>
+
+    <section>
+      <div class="section-label">サブスクリプション</div>
+      <h3>おやつ代を支援プランの返金・解約について</h3>
+      <p>おやつ代を支援プランはGoogle Play を通じたサブスクリプションです。返金はGoogle Play の返金ポリシーに準じます。開発者による個別の返金対応は行っておりません。</p>
+      <table>
+        <tr><th>項目</th><th>内容</th></tr>
+        <tr><td>解約方法</td><td>Google Play のサブスクリプション管理画面からいつでも解約できます</td></tr>
+        <tr><td>解約後の利用</td><td>解約後は次回更新日をもっておやつ代を支援プランの機能が無効になります</td></tr>
+        <tr><td>返金</td><td>Google Play のポリシーに従います。開発者への直接の返金申請はお受けできません</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-label">お問い合わせ</div>
+      <h3>連絡先</h3>
+      <p><strong>chiisakudx</strong></p>
+      <p>本ポリシーに関するご質問は、Google Play ストアのアプリページよりお問い合わせください。</p>
+    </section>
+
+  </div>
+
+  <hr class="divider" />
+
+  <div id="en-privacy">
+
+    <section>
+      <div class="section-label">Overview</div>
+      <h3>Our Privacy Commitment</h3>
+      <p><strong>All data in Dessert is stored exclusively on your device.</strong> No data is transmitted to external servers or stored in the cloud. No internet connection is required for normal use.</p>
+      <p>chiisakudx ("the developer") is committed to protecting your privacy. This policy explains how Dessert handles your data.</p>
+    </section>
+
+    <section>
+      <div class="section-label">Data Storage</div>
+      <h3>What We Store</h3>
+      <p>All data saved by this app remains on your device. The developer has no access to it.</p>
+      <table>
+        <tr><th>Data Type</th><th>Storage Location</th><th>Purpose</th></tr>
+        <tr><td>Account &amp; service info</td><td>On-device SQLite</td><td>Managing names, notes, costs, icons</td></tr>
+        <tr><td>Passwords</td><td>Encrypted storage (AES-256)</td><td>Secure password keeping</td></tr>
+        <tr><td>Password history</td><td>SQLite (reference keys) + Encrypted storage</td><td>Up to 3 generations of history</td></tr>
+        <tr><td>Theme &amp; language settings</td><td>SharedPreferences</td><td>App preferences</td></tr>
+        <tr><td>Background image</td><td>App documents directory</td><td>Dessert theme customization (paid feature)</td></tr>
+        <tr><td>Subscription status</td><td>SharedPreferences</td><td>Buy Me a Coffee plan state management</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-label">Network</div>
+      <h3>Internet &amp; External Transmission</h3>
+      <p>Dessert does not use the <code>INTERNET</code> permission and has no connection to any server operated by the developer.</p>
+      <p>The following are the only situations in which your device communicates externally:</p>
+      <table>
+        <tr><th>Situation</th><th>Destination</th></tr>
+        <tr><td>Purchasing the Buy Me a Coffee plan</td><td>Google Play billing system (Google's Privacy Policy applies)</td></tr>
+        <tr><td>Exporting a backup</td><td>Destination chosen by the user via OS share sheet (user-initiated only)</td></tr>
+        <tr><td>Opening a registered account URL</td><td>The URL registered by the user (via browser, user-initiated only)</td></tr>
+      </table>
+      <p style="margin-top:12px;">All of the above occur only when you actively initiate the action. The developer never receives or accesses this data.</p>
+    </section>
+
+    <section>
+      <div class="section-label">Security</div>
+      <h3>Password Encryption &amp; Authentication</h3>
+      <p>Passwords are encrypted using Android's EncryptedSharedPreferences (AES-256). They are never displayed in plain text within the app.</p>
+      <p>A PIN code lock protects your data from unauthorized access. This PIN is set independently from your device's lock screen.</p>
+      <p><strong>If you forget your PIN:</strong> You can reset the app by deleting all app data through the "Forgot PIN" option. This action cannot be undone. We strongly recommend exporting a backup before this occurs.</p>
+    </section>
+
+    <section>
+      <div class="section-label">Photos &amp; Files</div>
+      <h3>Permission Usage</h3>
+      <table>
+        <tr><th>Permission</th><th>Purpose</th></tr>
+        <tr><td>READ_MEDIA_IMAGES (Android 13+)<br>READ_EXTERNAL_STORAGE (Android 12 and below)</td><td>Used solely to select a custom background image from your photo library for the Dessert theme. The selected image is stored on-device only and is never transmitted externally.</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-label">Third Parties</div>
+      <h3>Data Sharing</h3>
+      <p>The developer does not sell, share, or provide user data to any third party — ever.</p>
+    </section>
+
+    <section>
+      <div class="section-label">Subscription</div>
+      <h3>Buy Me a Coffee — Refund &amp; Cancellation</h3>
+      <p>The Buy Me a Coffee plan is offered as a subscription through Google Play. Refunds are handled in accordance with Google Play's refund policy. The developer does not process refunds directly.</p>
+      <table>
+        <tr><th>Item</th><th>Details</th></tr>
+        <tr><td>How to cancel</td><td>Cancel anytime through your Google Play subscription settings</td></tr>
+        <tr><td>After cancellation</td><td>Access to plan features will end at the next billing date</td></tr>
+        <tr><td>Refunds</td><td>Subject to Google Play's refund policy. Direct refund requests to the developer cannot be accommodated</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-label">Contact</div>
+      <h3>Get in Touch</h3>
+      <p><strong>chiisakudx</strong></p>
+      <p>For questions about this policy, please contact us through the app's page on Google Play Store.</p>
+    </section>
+
+  </div>
+  <a href="#" class="back-to-top">▲ トップへ戻る</a>
+</div>
+
+<!-- ============================================================ -->
+<!-- 利用規約                                                       -->
+<!-- ============================================================ -->
+<div id="terms" class="page-section">
+  <div class="page-section-header">
+    <h2>利用規約</h2>
+    <div class="meta">最終更新: 2026年5月24日</div>
+  </div>
+
+  <div id="ja-terms">
+
+    <section>
+      <div class="section-label">はじめに</div>
+      <h3>本規約への同意</h3>
+      <p>Dessert（以下「本アプリ」）をダウンロード・インストール・使用することにより、お客様は本利用規約（以下「本規約」）に同意したものとみなします。同意いただけない場合は、本アプリのご利用をお控えください。</p>
+      <p>本アプリの開発者は <strong>chiisakudx</strong>（以下「開発者」）です。</p>
+    </section>
+
+    <section>
+      <div class="section-label">利用条件</div>
+      <h3>ご利用にあたって</h3>
+      <ul>
+        <li>本アプリは13歳以上の方を対象としています。</li>
+        <li>本アプリは個人的・非商業的目的に限り使用できます。</li>
+        <li>本アプリを改変・逆コンパイル・逆アセンブルすることを禁じます。</li>
+        <li>本アプリを第三者に再配布・販売することを禁じます。</li>
+        <li>本アプリを違法な目的または公序良俗に反する目的で使用することを禁じます。</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">データ管理責任</div>
+      <h3>ユーザーデータの取り扱いと責任</h3>
+      <div class="notice">
+        本アプリはすべてのデータをお使いのデバイス内にのみ保存します。開発者はクラウドバックアップや遠隔データ復元を提供しません。
+      </div>
+      <p>以下の事象によるデータ損失について、開発者は責任を負いません。</p>
+      <ul>
+        <li>デバイスの紛失・盗難・故障・初期化</li>
+        <li>アプリのアンインストール</li>
+        <li>PINリセット（全データ削除）操作</li>
+        <li>OSまたはデバイスのアップデートによる影響</li>
+      </ul>
+      <p>重要なデータは定期的にエクスポート機能（おやつ代を支援プラン）を使ってバックアップすることを強く推奨します。</p>
+    </section>
+
+    <section>
+      <div class="section-label">知的財産権</div>
+      <h3>著作権・商標</h3>
+      <p>本アプリおよびそのデザイン・ロゴ・コンテンツに関するすべての知的財産権は開発者に帰属します。本規約のいかなる内容も、上記の権利をお客様に譲渡するものではありません。</p>
+      <p>お客様が本アプリに入力・登録するデータ（アカウント名・メモ等）の権利はお客様に帰属します。開発者はこれらのデータにアクセスすることはできません。</p>
+    </section>
+
+    <section>
+      <div class="section-label">サブスクリプション</div>
+      <h3>おやつ代を支援プランについて</h3>
+      <p>本アプリはGoogle Play を通じた任意のサブスクリプション「おやつ代を支援プラン」を提供しています。</p>
+      <ul>
+        <li>サブスクリプションはGoogle Play の課金システムを通じて処理されます。</li>
+        <li>有効なサブスクリプションがある間、プラン限定機能をご利用いただけます。</li>
+        <li>解約はGoogle Play のサブスクリプション管理画面からいつでも行えます。</li>
+        <li>解約後は次回更新日をもってプラン機能が停止します。</li>
+        <li>返金はGoogle Play の返金ポリシーに準拠します。開発者への直接の返金申請はお受けできません。</li>
+        <li>開発者はサービス内容・価格を変更する場合があります。変更がある場合は、効力発生の合理的な期間前に本アプリのアップデートまたはGoogle Play ストアのページにてお知らせします。</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">免責事項</div>
+      <h3>保証の否認と責任制限</h3>
+      <p>本アプリは「現状のまま」提供されます。開発者は、本アプリが中断なく動作すること、エラーがないこと、特定の目的への適合性について、明示または黙示を問わずいかなる保証もしません。</p>
+      <p>適用法令が許容する最大限の範囲において、開発者は以下について責任を負いません。</p>
+      <ul>
+        <li>データの損失・破損</li>
+        <li>本アプリの使用または使用不能から生じる損害</li>
+        <li>第三者のサービス（Google Play 等）に関連する問題</li>
+        <li>デバイスまたはOSの問題によって生じる影響</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">規約の変更</div>
+      <h3>本規約の改定</h3>
+      <p>開発者は本規約を随時改定することができます。重要な変更がある場合は、本アプリのアップデートまたはGoogle Play ストアのページを通じてお知らせします。改定後も本アプリを継続して使用することで、変更後の規約に同意したものとみなします。</p>
+    </section>
+
+    <section>
+      <div class="section-label">サービスの終了</div>
+      <h3>アプリ提供の終了について</h3>
+      <p>開発者がアプリの提供を終了する場合、可能な限り事前にGoogle Play ストアのページを通じてお知らせします。本アプリはすべてのデータをデバイス内に保存しているため、アプリが配信終了となった後もインストール済みのアプリとデータはデバイス上に残ります。重要なデータは事前にエクスポート機能でバックアップされることを推奨します。</p>
+    </section>
+
+    <section>
+      <div class="section-label">準拠法・管轄</div>
+      <h3>準拠法および裁判管轄</h3>
+      <p>本規約は日本法に準拠し、これに従って解釈されます。本規約に関する紛争については、開発者の所在地を管轄する裁判所を専属的合意管轄裁判所とします。</p>
+    </section>
+
+    <section>
+      <div class="section-label">お問い合わせ</div>
+      <h3>連絡先</h3>
+      <p><strong>chiisakudx</strong></p>
+      <p>本規約に関するご質問は、Google Play ストアのアプリページよりお問い合わせください。</p>
+    </section>
+
+  </div>
+
+  <hr class="divider" />
+
+  <div id="en-terms">
+
+    <section>
+      <div class="section-label">Introduction</div>
+      <h3>Agreement to Terms</h3>
+      <p>By downloading, installing, or using Dessert (the "App"), you agree to be bound by these Terms of Service (the "Terms"). If you do not agree, please do not use the App.</p>
+      <p>The App is developed and operated by <strong>chiisakudx</strong> (the "developer").</p>
+    </section>
+
+    <section>
+      <div class="section-label">Permitted Use</div>
+      <h3>Conditions of Use</h3>
+      <ul>
+        <li>The App is intended for users aged 13 and older.</li>
+        <li>The App may only be used for personal, non-commercial purposes.</li>
+        <li>You may not modify, decompile, or reverse-engineer the App.</li>
+        <li>You may not redistribute or sell the App to any third party.</li>
+        <li>You may not use the App for unlawful purposes or in violation of applicable regulations.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">Data Responsibility</div>
+      <h3>Your Data — Your Responsibility</h3>
+      <div class="notice">
+        All data in Dessert is stored exclusively on your device. The developer does not provide cloud backup or remote data recovery.
+      </div>
+      <p>The developer is not liable for data loss caused by:</p>
+      <ul>
+        <li>Device loss, theft, damage, or factory reset</li>
+        <li>Uninstalling the App</li>
+        <li>PIN reset (which deletes all app data)</li>
+        <li>OS or device updates</li>
+      </ul>
+      <p>We strongly recommend regularly exporting backups using the export feature (Buy Me a Coffee plan).</p>
+    </section>
+
+    <section>
+      <div class="section-label">Intellectual Property</div>
+      <h3>Copyright &amp; Trademarks</h3>
+      <p>All intellectual property rights in the App — including its design, logo, and content — belong to the developer. Nothing in these Terms transfers any such rights to you.</p>
+      <p>Data you enter into the App (account names, notes, etc.) remains your property. The developer has no access to this data.</p>
+    </section>
+
+    <section>
+      <div class="section-label">Subscription</div>
+      <h3>Buy Me a Coffee Plan</h3>
+      <p>The App offers an optional subscription called "Buy Me a Coffee" through Google Play.</p>
+      <ul>
+        <li>Subscriptions are processed through the Google Play billing system.</li>
+        <li>Plan-exclusive features are available while your subscription is active.</li>
+        <li>You may cancel at any time through your Google Play subscription settings.</li>
+        <li>Plan features will end at the next billing date after cancellation.</li>
+        <li>Refunds are subject to Google Play's refund policy. Direct refund requests to the developer cannot be accommodated.</li>
+        <li>The developer may modify plan features or pricing. Any such changes will be communicated through the App or the Google Play Store listing with reasonable advance notice before taking effect.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">Disclaimer</div>
+      <h3>No Warranty &amp; Limitation of Liability</h3>
+      <p>The App is provided "as is." The developer makes no warranty — express or implied — that the App will operate without interruption or error, or that it is fit for any particular purpose.</p>
+      <p>To the maximum extent permitted by applicable law, the developer is not liable for:</p>
+      <ul>
+        <li>Loss or corruption of data</li>
+        <li>Damages arising from use or inability to use the App</li>
+        <li>Issues related to third-party services (e.g., Google Play)</li>
+        <li>Effects caused by device or OS issues</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">Changes to Terms</div>
+      <h3>Updates to These Terms</h3>
+      <p>The developer may update these Terms at any time. Material changes will be communicated through App updates or the Google Play Store listing. Continued use of the App after changes take effect constitutes acceptance of the updated Terms.</p>
+    </section>
+
+    <section>
+      <div class="section-label">Service Discontinuation</div>
+      <h3>If the App Is Discontinued</h3>
+      <p>If the developer decides to discontinue the App, notice will be provided through the Google Play Store listing where reasonably possible. Because all data is stored on your device, your installed App and its data will remain on your device after distribution ends. We strongly recommend exporting a backup before any anticipated discontinuation.</p>
+    </section>
+
+    <section>
+      <div class="section-label">Governing Law</div>
+      <h3>Governing Law &amp; Jurisdiction</h3>
+      <p>These Terms are governed by and construed in accordance with the laws of Japan. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts located in the developer's jurisdiction.</p>
+    </section>
+
+    <section>
+      <div class="section-label">Contact</div>
+      <h3>Get in Touch</h3>
+      <p><strong>chiisakudx</strong></p>
+      <p>For questions about these Terms, please contact us through the App's page on the Google Play Store.</p>
+    </section>
+
+  </div>
+  <a href="#" class="back-to-top">▲ トップへ戻る</a>
+</div>
+
+<!-- ============================================================ -->
+<!-- よくある質問                                                   -->
+<!-- ============================================================ -->
+<div id="faq" class="page-section">
+  <div class="page-section-header">
+    <h2>よくある質問</h2>
+    <div class="meta">最終更新: 2026年6月3日</div>
+  </div>
+
+  <div id="ja-faq">
+
+    <section>
+      <div class="section-label">データ・プライバシー</div>
+      <h3>データについて</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. データはどこに保存されていますか？</div>
+        <div class="faq-a">すべてのデータはお使いの端末内にのみ保存されます。外部サーバーやクラウドへの送信は一切行いません。インターネット接続も不要です。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. アプリをアンインストールするとデータは消えますか？</div>
+        <div class="faq-a">はい、アンインストールするとすべてのデータが削除されます。アンインストール前に設定画面からエクスポート（バックアップ）することをお勧めします。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. 機種変更・端末の初期化をした場合、データはどうなりますか？</div>
+        <div class="faq-a">データは端末内にのみ保存されているため、機種変更・初期化を行うと引き継がれません。事前に設定画面からJSONファイルとしてエクスポートし、新しい端末でインポートすることでデータを移行できます（おやつ代を支援プラン限定）。</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">セキュリティ</div>
+      <h3>セキュリティについて</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. PINを忘れた場合はどうなりますか？</div>
+        <div class="faq-a">PIN認証画面に「PINを忘れた場合」のオプションがあります。ただし、PINを忘れた場合の復元手段はなく、<strong>すべてのデータを削除してリセット</strong>することになります。PINは必ずメモしておくか、安全な場所に保管してください。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. パスワードはどのように保護されていますか？</div>
+        <div class="faq-a">パスワードはデバイスのセキュアストレージ（Android: EncryptedSharedPreferences / iOS: Keychain）に暗号化して保存されます。アプリのデータベースにパスワードの実体は保存されません。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. 生体認証（指紋・Face ID）には対応していますか？</div>
+        <div class="faq-a">現在は対応していません。PINコードによる認証のみご利用いただけます。</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">バックアップ</div>
+      <h3>バックアップについて</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. 機種変更時にデータを引き継ぐ方法は？</div>
+        <div class="faq-a">以下の手順で移行できます（おやつ代を支援プラン限定）。<br>1. 旧端末の設定画面 → エクスポートでJSONファイルを保存<br>2. ファイルを新端末に転送（メール・クラウドストレージ等）<br>3. 新端末のDessertで設定画面 → インポートを実行</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. バックアップファイルにはパスワードも含まれますか？</div>
+        <div class="faq-a">はい、エクスポートしたJSONファイルにはパスワードを含むすべてのデータが含まれます。ファイルの管理・取り扱いには十分ご注意ください。</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">料金・プラン</div>
+      <h3>料金・プランについて</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. 無料でできることとできないことを教えてください。</div>
+        <div class="faq-a">
+          <table>
+            <tr><th>機能</th><th>無料</th><th>おやつ代を支援プラン</th></tr>
+            <tr><td>アカウント・サービスの登録・管理</td><td>✅</td><td>✅</td></tr>
+            <tr><td>パスワードの保存・管理</td><td>✅</td><td>✅</td></tr>
+            <tr><td>パスワード自動生成</td><td>✅</td><td>✅</td></tr>
+            <tr><td>タグランチャー（閲覧・起動）</td><td>✅</td><td>✅</td></tr>
+            <tr><td>タグの作成・設定</td><td>❌</td><td>✅</td></tr>
+            <tr><td>お気に入り・あまり使わないセクション</td><td>❌</td><td>✅</td></tr>
+            <tr><td>コスト管理（グラフ・集計）</td><td>❌</td><td>✅</td></tr>
+            <tr><td>バックアップ・復元</td><td>❌</td><td>✅</td></tr>
+            <tr><td>カスタム背景画像</td><td>❌</td><td>✅</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. プランを解約するとデータや機能はどうなりますか？</div>
+        <div class="faq-a">解約後もこれまで登録したデータはすべて保持されます。ただし、タグ・コスト管理・バックアップなどのプラン限定機能はご利用いただけなくなります。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. 一度課金すれば永続的に使えますか？</div>
+        <div class="faq-a">おやつ代を支援プランは<strong>月額サブスクリプション</strong>です。毎月の継続課金が必要です。解約するとプラン限定機能が利用できなくなります。</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">機能</div>
+      <h3>機能について</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. 外部認証アカウントと個別アカウントの違いは何ですか？</div>
+        <div class="faq-a">Dessertではアカウントを2種類に分けて管理します。<br><strong>外部認証アカウント</strong>：Google・LINE・Appleなど、他のサービスへのログインに使う認証元アカウントです。これに紐づく連携サービスをまとめて管理できます。<br><strong>個別のサービスアカウント</strong>：サービス固有のID・パスワードを持つアカウント（例: Amazonに直接登録したアカウント）です。<br>この2層構造により「どのGoogleアカウントで何にログインしているか」が一目でわかります。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. タグランチャーとは何ですか？</div>
+        <div class="faq-a">タグを使ってアカウントをグループ化し、ワンタップでURLを開いたりIDをコピーしたりできる機能です。仕事・プライベート・副業など、用途別にまとめておくと素早くアクセスできます。タグランチャーの閲覧・起動は無料でご利用いただけます（タグの作成はおやつ代を支援プランが必要です）。</div>
+      </div>
+    </section>
+
+  </div>
+
+  <hr class="divider" />
+
+  <div id="en-faq">
+
+    <section>
+      <div class="section-label">Data &amp; Privacy</div>
+      <h3>About Your Data</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. Where is my data stored?</div>
+        <div class="faq-a">All data is stored exclusively on your device. Nothing is sent to external servers or the cloud. No internet connection is required.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. Will my data be deleted if I uninstall the app?</div>
+        <div class="faq-a">Yes, uninstalling the app deletes all data. We recommend exporting a backup from Settings before uninstalling.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. What happens to my data if I change devices or reset my phone?</div>
+        <div class="faq-a">Since data is stored only on your device, it won't transfer automatically. You can migrate data by exporting a JSON file from your old device and importing it on your new device (Buy Me a Coffee plan required).</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Security</div>
+      <h3>About Security</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. What happens if I forget my PIN?</div>
+        <div class="faq-a">You can tap "Forgot PIN" on the lock screen, but there is no recovery option — this will <strong>delete all app data and reset the app</strong>. Please keep your PIN in a safe place.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. How are my passwords protected?</div>
+        <div class="faq-a">Passwords are encrypted and stored in the device's secure storage (Android: EncryptedSharedPreferences / iOS: Keychain). The actual password values are never stored in the app's database.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. Is biometric authentication (fingerprint / Face ID) supported?</div>
+        <div class="faq-a">Not currently. Only PIN code authentication is available at this time.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Backup</div>
+      <h3>About Backup</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. How do I transfer data to a new device?</div>
+        <div class="faq-a">Follow these steps (Buy Me a Coffee plan required):<br>1. On your old device: Settings → Export to save a JSON file<br>2. Transfer the file to your new device (via email, cloud storage, etc.)<br>3. On your new device: Settings → Import</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. Does the backup file include passwords?</div>
+        <div class="faq-a">Yes, the exported JSON file includes all data, including passwords. Please handle the file with care.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Pricing &amp; Plans</div>
+      <h3>About Pricing &amp; Plans</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. What can I do for free?</div>
+        <div class="faq-a">
+          <table>
+            <tr><th>Feature</th><th>Free</th><th>Buy Me a Coffee</th></tr>
+            <tr><td>Account &amp; service management</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Password save &amp; management</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Password auto-generation</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Tag Launcher (view &amp; launch)</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Tag creation &amp; assignment</td><td>❌</td><td>✅</td></tr>
+            <tr><td>Favorites &amp; Rarely Used sections</td><td>❌</td><td>✅</td></tr>
+            <tr><td>Cost management (graphs &amp; totals)</td><td>❌</td><td>✅</td></tr>
+            <tr><td>Backup &amp; restore</td><td>❌</td><td>✅</td></tr>
+            <tr><td>Custom background image</td><td>❌</td><td>✅</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. What happens to my data and features if I cancel the plan?</div>
+        <div class="faq-a">All your registered data is retained after cancellation. However, plan-exclusive features such as tags, cost management, and backup will no longer be available.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. Is it a one-time purchase or a subscription?</div>
+        <div class="faq-a">The Buy Me a Coffee plan is a <strong>monthly subscription</strong>. It requires ongoing monthly payments. Cancelling will disable plan-exclusive features.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Features</div>
+      <h3>About Features</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. What's the difference between External Auth and Individual accounts?</div>
+        <div class="faq-a">Dessert organizes accounts into two types:<br><strong>External Auth Accounts</strong>: Authentication providers like Google, LINE, or Apple that you use to log into other services. Linked services are grouped under these accounts.<br><strong>Individual Service Accounts</strong>: Accounts with their own unique ID and password (e.g., an Amazon account registered directly).<br>This two-layer structure makes it easy to see which account you use to log into which services.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. What is the Tag Launcher?</div>
+        <div class="faq-a">The Tag Launcher lets you group accounts by tag and quickly open URLs or copy IDs with a single tap. Organize by work, personal, or side projects for fast access. Viewing and launching is free; creating tags requires the Buy Me a Coffee plan.</div>
+      </div>
+    </section>
+
+  </div>
+  <a href="#" class="back-to-top">▲ トップへ戻る</a>
+</div>
+
+</main>
+
+<footer>
+  &copy; 2026 chiisakudx — Dessert
+</footer>
+
+</body>
+</html>
