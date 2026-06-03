@@ -12,6 +12,7 @@
       --accent: #e8607a;
       --border: #e8e0d8;
       --card: #fff8f2;
+      --sidebar-w: 210px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -19,11 +20,113 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
+    }
+
+    /* ==============================
+       レイアウト
+    ============================== */
+    #layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ==============================
+       サイドバー（PC）
+    ============================== */
+    #sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      background: var(--card);
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 32px 0 24px;
+    }
+    .sidebar-brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      padding: 0 20px 2px;
+      letter-spacing: 0.05em;
+    }
+    .sidebar-subtitle {
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding: 0 20px 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+    #sidebar nav ul {
+      list-style: none;
+    }
+    #sidebar nav ul li a {
+      display: block;
+      padding: 11px 20px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border-left: 3px solid transparent;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+    }
+    #sidebar nav ul li a:hover {
+      background: var(--bg);
+      color: var(--accent);
+    }
+    #sidebar nav ul li a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      background: var(--bg);
+      font-weight: 700;
+    }
+
+    /* ==============================
+       メインコンテンツエリア
+    ============================== */
+    #main-content {
+      flex: 1;
+      min-width: 0;
       padding: 0 16px;
     }
+
+    /* ==============================
+       スティッキータブ（スマホ）
+    ============================== */
+    #mobile-tabs {
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 2px solid var(--border);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    #mobile-tabs a {
+      flex: 1;
+      text-align: center;
+      padding: 12px 4px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: color 0.12s, border-color 0.12s;
+      white-space: nowrap;
+    }
+    #mobile-tabs a:hover,
+    #mobile-tabs a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ==============================
+       ヘッダー
+    ============================== */
     header {
       text-align: center;
-      padding: 48px 0 24px;
+      padding: 40px 0 20px;
       border-bottom: 1px solid var(--border);
       margin-bottom: 32px;
     }
@@ -38,27 +141,8 @@
       font-weight: 700;
       color: var(--accent);
     }
-    /* セクションナビゲーション */
-    .section-nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 24px 0 8px;
-    }
-    .section-nav a {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      border: 1.5px solid var(--accent);
-      padding: 6px 18px;
-      border-radius: 20px;
-      transition: background 0.15s;
-    }
-    .section-nav a:hover { background: var(--accent); color: #fff; }
     .lang-switch {
-      margin-top: 16px;
+      margin-top: 14px;
       display: flex;
       justify-content: center;
       gap: 12px;
@@ -72,14 +156,17 @@
       border-radius: 20px;
     }
     .lang-switch a:hover { background: var(--border); }
+
+    /* ==============================
+       本文
+    ============================== */
     main {
       max-width: 720px;
       margin: 0 auto;
       padding-bottom: 80px;
     }
-    /* 各セクションのタイトルバー */
     .page-section {
-      scroll-margin-top: 24px;
+      scroll-margin-top: 16px;
     }
     .page-section-header {
       background: var(--card);
@@ -92,9 +179,7 @@
       font-size: 1.3rem;
       font-weight: 700;
       color: var(--accent);
-      border-bottom: none;
       margin-bottom: 2px;
-      padding-bottom: 0;
     }
     .page-section-header .meta {
       font-size: 0.8rem;
@@ -158,7 +243,6 @@
       margin-bottom: 16px;
       font-size: 0.9rem;
     }
-    /* FAQ */
     .faq-item {
       margin-bottom: 20px;
       border-bottom: 1px solid var(--border);
@@ -197,25 +281,64 @@
       padding: 24px 0 40px;
       border-top: 1px solid var(--border);
     }
+
+    /* ==============================
+       レスポンシブ
+    ============================== */
+    @media (min-width: 768px) {
+      #mobile-tabs { display: none !important; }
+      .page-section { scroll-margin-top: 24px; }
+    }
+    @media (max-width: 767px) {
+      #sidebar { display: none; }
+      #mobile-tabs { display: flex; }
+      .page-section { scroll-margin-top: 52px; }
+      header { padding: 28px 0 16px; }
+      header h1 { font-size: 1.5rem; }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="app-name">Dessert</div>
-  <h1>ポリシー・よくある質問</h1>
-  <nav class="section-nav">
-    <a href="#privacy">プライバシーポリシー</a>
-    <a href="#terms">利用規約</a>
-    <a href="#faq">よくある質問</a>
-  </nav>
-  <div class="lang-switch">
-    <a href="#ja-privacy">日本語</a>
-    <a href="#en-privacy">English</a>
-  </div>
-</header>
+<div id="layout">
 
-<main>
+  <!-- ==============================
+       サイドバー（PC）
+  ============================== -->
+  <aside id="sidebar">
+    <div class="sidebar-brand">Dessert</div>
+    <div class="sidebar-subtitle">ポリシー・FAQ</div>
+    <nav>
+      <ul>
+        <li><a href="#privacy" data-section="privacy">プライバシーポリシー</a></li>
+        <li><a href="#terms" data-section="terms">利用規約</a></li>
+        <li><a href="#faq" data-section="faq">よくある質問</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ==============================
+       メインコンテンツ
+  ============================== -->
+  <div id="main-content">
+
+    <!-- スティッキータブ（スマホ） -->
+    <nav id="mobile-tabs">
+      <a href="#privacy" data-section="privacy">プライバシー</a>
+      <a href="#terms" data-section="terms">利用規約</a>
+      <a href="#faq" data-section="faq">FAQ</a>
+    </nav>
+
+    <header>
+      <div class="app-name">Dessert</div>
+      <h1>ポリシー・よくある質問</h1>
+      <div class="lang-switch">
+        <a href="#ja-privacy">日本語</a>
+        <a href="#en-privacy">English</a>
+      </div>
+    </header>
+
+    <main>
 
 <!-- ============================================================ -->
 <!-- プライバシーポリシー                                          -->
@@ -391,7 +514,7 @@
     </section>
 
   </div>
-  <a href="#" class="back-to-top">▲ トップへ戻る</a>
+  <a href="#" class="back-to-top">&#9650; トップへ戻る</a>
 </div>
 
 <!-- ============================================================ -->
@@ -600,7 +723,7 @@
     </section>
 
   </div>
-  <a href="#" class="back-to-top">▲ トップへ戻る</a>
+  <a href="#" class="back-to-top">&#9650; トップへ戻る</a>
 </div>
 
 <!-- ============================================================ -->
@@ -678,15 +801,15 @@
         <div class="faq-a">
           <table>
             <tr><th>機能</th><th>無料</th><th>おやつ代を支援プラン</th></tr>
-            <tr><td>アカウント・サービスの登録・管理</td><td>✅</td><td>✅</td></tr>
-            <tr><td>パスワードの保存・管理</td><td>✅</td><td>✅</td></tr>
-            <tr><td>パスワード自動生成</td><td>✅</td><td>✅</td></tr>
-            <tr><td>タグランチャー（閲覧・起動）</td><td>✅</td><td>✅</td></tr>
-            <tr><td>タグの作成・設定</td><td>❌</td><td>✅</td></tr>
-            <tr><td>お気に入り・あまり使わないセクション</td><td>❌</td><td>✅</td></tr>
-            <tr><td>コスト管理（グラフ・集計）</td><td>❌</td><td>✅</td></tr>
-            <tr><td>バックアップ・復元</td><td>❌</td><td>✅</td></tr>
-            <tr><td>カスタム背景画像</td><td>❌</td><td>✅</td></tr>
+            <tr><td>アカウント・サービスの登録・管理</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>パスワードの保存・管理</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>パスワード自動生成</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>タグランチャー（閲覧・起動）</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>タグの作成・設定</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>お気に入り・あまり使わないセクション</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>コスト管理（グラフ・集計）</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>バックアップ・復元</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>カスタム背景画像</td><td>&#10007;</td><td>&#10003;</td></tr>
           </table>
         </div>
       </div>
@@ -769,7 +892,7 @@
 
       <div class="faq-item">
         <div class="faq-q">Q. How do I transfer data to a new device?</div>
-        <div class="faq-a">Follow these steps (Buy Me a Coffee plan required):<br>1. On your old device: Settings → Export to save a JSON file<br>2. Transfer the file to your new device (via email, cloud storage, etc.)<br>3. On your new device: Settings → Import</div>
+        <div class="faq-a">Follow these steps (Buy Me a Coffee plan required):<br>1. On your old device: Settings &#8594; Export to save a JSON file<br>2. Transfer the file to your new device (via email, cloud storage, etc.)<br>3. On your new device: Settings &#8594; Import</div>
       </div>
 
       <div class="faq-item">
@@ -787,15 +910,15 @@
         <div class="faq-a">
           <table>
             <tr><th>Feature</th><th>Free</th><th>Buy Me a Coffee</th></tr>
-            <tr><td>Account &amp; service management</td><td>✅</td><td>✅</td></tr>
-            <tr><td>Password save &amp; management</td><td>✅</td><td>✅</td></tr>
-            <tr><td>Password auto-generation</td><td>✅</td><td>✅</td></tr>
-            <tr><td>Tag Launcher (view &amp; launch)</td><td>✅</td><td>✅</td></tr>
-            <tr><td>Tag creation &amp; assignment</td><td>❌</td><td>✅</td></tr>
-            <tr><td>Favorites &amp; Rarely Used sections</td><td>❌</td><td>✅</td></tr>
-            <tr><td>Cost management (graphs &amp; totals)</td><td>❌</td><td>✅</td></tr>
-            <tr><td>Backup &amp; restore</td><td>❌</td><td>✅</td></tr>
-            <tr><td>Custom background image</td><td>❌</td><td>✅</td></tr>
+            <tr><td>Account &amp; service management</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>Password save &amp; management</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>Password auto-generation</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>Tag Launcher (view &amp; launch)</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>Tag creation &amp; assignment</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>Favorites &amp; Rarely Used sections</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>Cost management (graphs &amp; totals)</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>Backup &amp; restore</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>Custom background image</td><td>&#10007;</td><td>&#10003;</td></tr>
           </table>
         </div>
       </div>
@@ -827,14 +950,45 @@
     </section>
 
   </div>
-  <a href="#" class="back-to-top">▲ トップへ戻る</a>
+  <a href="#" class="back-to-top">&#9650; トップへ戻る</a>
 </div>
 
-</main>
+    </main>
 
-<footer>
-  &copy; 2026 chiisakudx — Dessert
-</footer>
+    <footer>
+      &copy; 2026 chiisakudx &mdash; Dessert
+    </footer>
+
+  </div><!-- /#main-content -->
+</div><!-- /#layout -->
+
+<script>
+  // 現在表示中のセクションをナビに反映
+  const sections = document.querySelectorAll('.page-section');
+  const navLinks = document.querySelectorAll('#sidebar a[data-section], #mobile-tabs a[data-section]');
+
+  function setActive(id) {
+    navLinks.forEach(function(a) {
+      a.classList.toggle('active', a.dataset.section === id);
+    });
+  }
+
+  // 初期状態：最初のセクションをアクティブに
+  setActive('privacy');
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        setActive(entry.target.id);
+      }
+    });
+  }, {
+    rootMargin: '-10% 0px -80% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(function(s) { observer.observe(s); });
+</script>
 
 </body>
 </html>
