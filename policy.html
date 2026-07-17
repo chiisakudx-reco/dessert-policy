@@ -389,7 +389,7 @@
       <p>ただし、以下の場合に限りデバイスが外部と通信します。</p>
       <table>
         <tr><th>状況</th><th>通信先</th></tr>
-        <tr><td>おやつ代を支援プランのご購入時</td><td>Google Play 課金システム（Google のプライバシーポリシーが適用されます）</td></tr>
+        <tr><td>おやつ代を支援プランのご購入時</td><td>Google Play（Android）または App Store（iOS）の課金システム（それぞれ Google・Apple のプライバシーポリシーが適用されます）</td></tr>
         <tr><td>バックアップのエクスポート操作時</td><td>ユーザーが選択した共有先（OS標準シェアシート経由・ユーザーの意思による操作）</td></tr>
         <tr><td>登録したアカウントのURLを開く操作時</td><td>ユーザーが登録したURL（ブラウザ経由・ユーザーの意思による操作）</td></tr>
         <tr><td>他アプリの共有メニューから「Dessert」を選択した時</td><td>共有元アプリ（OS標準共有シート経由・ユーザーの意思による操作）</td></tr>
@@ -400,17 +400,20 @@
     <section>
       <div class="section-label">セキュリティ</div>
       <h3>パスワードの暗号化・認証</h3>
-      <p>パスワードは Android の EncryptedSharedPreferences（AES-256）を使用して暗号化保存されます。アプリ画面上で平文表示されることはありません。</p>
+      <p>パスワードはデバイスのセキュアストレージ（Android: EncryptedSharedPreferences／AES-256、iOS: Keychain）に暗号化して保存されます。アプリ画面上で平文表示されることはありません。</p>
       <p>PINコードによるアプリロックで、第三者のアクセスからデータを保護します。PINはお使いのデバイスのロック画面とは独立して設定されます。</p>
       <p><strong>PINを忘れた場合：</strong>アプリ内の「PINを忘れた場合」から、アプリ内のすべてのデータを削除してリセットすることができます。この操作は取り消せません。重要なデータは事前にエクスポート機能でバックアップすることを強く推奨します。</p>
     </section>
 
     <section>
-      <div class="section-label">写真・ファイルへのアクセス</div>
-      <h3>権限の利用目的</h3>
+      <div class="section-label">権限の利用目的</div>
+      <h3>本アプリが利用する権限</h3>
       <table>
         <tr><th>権限</th><th>利用目的</th></tr>
-        <tr><td>READ_MEDIA_IMAGES（Android 13+）<br>READ_EXTERNAL_STORAGE（Android 12以下）</td><td>Dessertテーマのカスタム背景画像を端末のフォトライブラリから選択するためにのみ使用します。選択した画像はデバイス内にのみ保存され、外部に送信されることはありません。</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE（Android 12以下）<br>iOS: 権限宣言不要（システム標準のフォトピッカーを使用）</td><td>Dessertテーマのカスタム背景画像を端末のフォトライブラリから選択するためにのみ使用します。選択した画像はデバイス内にのみ保存され、外部に送信されることはありません。Android 13以降はシステム標準のフォトピッカーを使用するため、この権限は不要です</td></tr>
+        <tr><td>POST_NOTIFICATIONS（Android）<br>iOS: 実行時の通知許可（アラート・サウンド）</td><td>メモの通知・アラーム機能をお使いいただくために使用します。許可しなくても本アプリの他の機能はご利用いただけます</td></tr>
+        <tr><td>SCHEDULE_EXACT_ALARM（Android）</td><td>指定した時刻に正確に通知・アラームを届けるために使用します</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED（Android）</td><td>端末を再起動した後も、設定済みの通知・アラームが引き続き機能するようにするために使用します</td></tr>
       </table>
     </section>
 
@@ -423,12 +426,12 @@
     <section>
       <div class="section-label">サブスクリプション</div>
       <h3>おやつ代を支援プランの返金・解約について</h3>
-      <p>おやつ代を支援プランはGoogle Play を通じたサブスクリプションです。返金はGoogle Play の返金ポリシーに準じます。開発者による個別の返金対応は行っておりません。</p>
+      <p>おやつ代を支援プランはGoogle Play（Android）または App Store（iOS）を通じたサブスクリプションです。返金はご利用のストアの返金ポリシーに準じます。開発者による個別の返金対応は行っておりません。</p>
       <table>
         <tr><th>項目</th><th>内容</th></tr>
-        <tr><td>解約方法</td><td>Google Play のサブスクリプション管理画面からいつでも解約できます</td></tr>
+        <tr><td>解約方法</td><td>ご利用のストア（Google Play または App Store）のサブスクリプション管理画面からいつでも解約できます</td></tr>
         <tr><td>解約後の利用</td><td>解約後は次回更新日をもっておやつ代を支援プランの機能が無効になります</td></tr>
-        <tr><td>返金</td><td>Google Play のポリシーに従います。開発者への直接の返金申請はお受けできません</td></tr>
+        <tr><td>返金</td><td>ご利用のストア（Google Play または App Store）のポリシーに従います。開発者への直接の返金申請はお受けできません</td></tr>
       </table>
     </section>
 
@@ -436,7 +439,7 @@
       <div class="section-label">お問い合わせ</div>
       <h3>連絡先</h3>
       <p><strong>chiisakudx</strong></p>
-      <p>本ポリシーに関するご質問は、Google Play ストアのアプリページよりお問い合わせください。</p>
+      <p>本ポリシーに関するご質問は、ご利用のストア（Google Play または App Store）のアプリページよりお問い合わせください。</p>
     </section>
 
   </div>
@@ -475,7 +478,7 @@
       <p>The following are the only situations in which your device communicates externally:</p>
       <table>
         <tr><th>Situation</th><th>Destination</th></tr>
-        <tr><td>Purchasing the Buy Me a Coffee plan</td><td>Google Play billing system (Google's Privacy Policy applies)</td></tr>
+        <tr><td>Purchasing the Buy Me a Coffee plan</td><td>Google Play (Android) or App Store (iOS) billing system (Google's or Apple's Privacy Policy applies, respectively)</td></tr>
         <tr><td>Exporting a backup</td><td>Destination chosen by the user via OS share sheet (user-initiated only)</td></tr>
         <tr><td>Opening a registered account URL</td><td>The URL registered by the user (via browser, user-initiated only)</td></tr>
         <tr><td>Choosing "Dessert" from another app's share menu</td><td>The source app (via the OS standard share sheet, user-initiated only)</td></tr>
@@ -486,17 +489,20 @@
     <section>
       <div class="section-label">Security</div>
       <h3>Password Encryption &amp; Authentication</h3>
-      <p>Passwords are encrypted using Android's EncryptedSharedPreferences (AES-256). They are never displayed in plain text within the app.</p>
+      <p>Passwords are encrypted and stored in the device's secure storage (Android: EncryptedSharedPreferences / AES-256; iOS: Keychain). They are never displayed in plain text within the app.</p>
       <p>A PIN code lock protects your data from unauthorized access. This PIN is set independently from your device's lock screen.</p>
       <p><strong>If you forget your PIN:</strong> You can reset the app by deleting all app data through the "Forgot PIN" option. This action cannot be undone. We strongly recommend exporting a backup before this occurs.</p>
     </section>
 
     <section>
-      <div class="section-label">Photos &amp; Files</div>
-      <h3>Permission Usage</h3>
+      <div class="section-label">Permission Usage</div>
+      <h3>Permissions Used by This App</h3>
       <table>
         <tr><th>Permission</th><th>Purpose</th></tr>
-        <tr><td>READ_MEDIA_IMAGES (Android 13+)<br>READ_EXTERNAL_STORAGE (Android 12 and below)</td><td>Used solely to select a custom background image from your photo library for the Dessert theme. The selected image is stored on-device only and is never transmitted externally.</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE (Android 12 and below)<br>iOS: no permission declaration required (uses the system's standard photo picker)</td><td>Used solely to select a custom background image from your photo library for the Dessert theme. The selected image is stored on-device only and is never transmitted externally. On Android 13 and above, this permission is not needed since the app uses the system's standard photo picker</td></tr>
+        <tr><td>POST_NOTIFICATIONS (Android)<br>iOS: runtime notification authorization (alert, sound)</td><td>Used to enable the memo notification and alarm features. The rest of the app remains fully usable if you decline</td></tr>
+        <tr><td>SCHEDULE_EXACT_ALARM (Android)</td><td>Used to deliver notifications and alarms at the exact time you specify</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED (Android)</td><td>Used to ensure scheduled notifications and alarms keep working after the device restarts</td></tr>
       </table>
     </section>
 
@@ -509,12 +515,12 @@
     <section>
       <div class="section-label">Subscription</div>
       <h3>Buy Me a Coffee — Refund &amp; Cancellation</h3>
-      <p>The Buy Me a Coffee plan is offered as a subscription through Google Play. Refunds are handled in accordance with Google Play's refund policy. The developer does not process refunds directly.</p>
+      <p>The Buy Me a Coffee plan is offered as a subscription through Google Play (Android) or the App Store (iOS). Refunds are handled in accordance with the policy of the store you subscribed through. The developer does not process refunds directly.</p>
       <table>
         <tr><th>Item</th><th>Details</th></tr>
-        <tr><td>How to cancel</td><td>Cancel anytime through your Google Play subscription settings</td></tr>
+        <tr><td>How to cancel</td><td>Cancel anytime through your subscription settings on Google Play or the App Store</td></tr>
         <tr><td>After cancellation</td><td>Access to plan features will end at the next billing date</td></tr>
-        <tr><td>Refunds</td><td>Subject to Google Play's refund policy. Direct refund requests to the developer cannot be accommodated</td></tr>
+        <tr><td>Refunds</td><td>Subject to the refund policy of Google Play or the App Store. Direct refund requests to the developer cannot be accommodated</td></tr>
       </table>
     </section>
 
@@ -522,7 +528,7 @@
       <div class="section-label">Contact</div>
       <h3>Get in Touch</h3>
       <p><strong>chiisakudx</strong></p>
-      <p>For questions about this policy, please contact us through the app's page on Google Play Store.</p>
+      <p>For questions about this policy, please contact us through the app's page on Google Play or the App Store.</p>
     </section>
 
   </div>
@@ -585,14 +591,14 @@
     <section>
       <div class="section-label">サブスクリプション</div>
       <h3>おやつ代を支援プランについて</h3>
-      <p>本アプリはGoogle Play を通じた任意のサブスクリプション「おやつ代を支援プラン」を提供しています。</p>
+      <p>本アプリはGoogle Play（Android）または App Store（iOS）を通じた任意のサブスクリプション「おやつ代を支援プラン」を提供しています。</p>
       <ul>
-        <li>サブスクリプションはGoogle Play の課金システムを通じて処理されます。</li>
+        <li>サブスクリプションはGoogle Play または App Store の課金システムを通じて処理されます。</li>
         <li>有効なサブスクリプションがある間、プラン限定機能をご利用いただけます。</li>
-        <li>解約はGoogle Play のサブスクリプション管理画面からいつでも行えます。</li>
+        <li>解約はご利用のストア（Google Play または App Store）のサブスクリプション管理画面からいつでも行えます。</li>
         <li>解約後は次回更新日をもってプラン機能が停止します。</li>
-        <li>返金はGoogle Play の返金ポリシーに準拠します。開発者への直接の返金申請はお受けできません。</li>
-        <li>開発者はサービス内容・価格を変更する場合があります。変更がある場合は、効力発生の合理的な期間前に本アプリのアップデートまたはGoogle Play ストアのページにてお知らせします。</li>
+        <li>返金はご利用のストア（Google Play または App Store）の返金ポリシーに準拠します。開発者への直接の返金申請はお受けできません。</li>
+        <li>開発者はサービス内容・価格を変更する場合があります。変更がある場合は、効力発生の合理的な期間前に本アプリのアップデートまたはご利用のストア（Google Play／App Store）のページにてお知らせします。</li>
       </ul>
     </section>
 
@@ -604,7 +610,7 @@
       <ul>
         <li>データの損失・破損</li>
         <li>本アプリの使用または使用不能から生じる損害</li>
-        <li>第三者のサービス（Google Play 等）に関連する問題</li>
+        <li>第三者のサービス（Google Play・App Store 等）に関連する問題</li>
         <li>デバイスまたはOSの問題によって生じる影響</li>
       </ul>
     </section>
@@ -612,13 +618,13 @@
     <section>
       <div class="section-label">規約の変更</div>
       <h3>本規約の改定</h3>
-      <p>開発者は本規約を随時改定することができます。重要な変更がある場合は、本アプリのアップデートまたはGoogle Play ストアのページを通じてお知らせします。改定後も本アプリを継続して使用することで、変更後の規約に同意したものとみなします。</p>
+      <p>開発者は本規約を随時改定することができます。重要な変更がある場合は、本アプリのアップデートまたはご利用のストア（Google Play／App Store）のページを通じてお知らせします。改定後も本アプリを継続して使用することで、変更後の規約に同意したものとみなします。</p>
     </section>
 
     <section>
       <div class="section-label">サービスの終了</div>
       <h3>アプリ提供の終了について</h3>
-      <p>開発者がアプリの提供を終了する場合、可能な限り事前にGoogle Play ストアのページを通じてお知らせします。本アプリはすべてのデータをデバイス内に保存しているため、アプリが配信終了となった後もインストール済みのアプリとデータはデバイス上に残ります。重要なデータは事前にエクスポート機能でバックアップされることを推奨します。</p>
+      <p>開発者がアプリの提供を終了する場合、可能な限り事前にご利用のストア（Google Play／App Store）のページを通じてお知らせします。本アプリはすべてのデータをデバイス内に保存しているため、アプリが配信終了となった後もインストール済みのアプリとデータはデバイス上に残ります。重要なデータは事前にエクスポート機能でバックアップされることを推奨します。</p>
     </section>
 
     <section>
@@ -631,7 +637,7 @@
       <div class="section-label">お問い合わせ</div>
       <h3>連絡先</h3>
       <p><strong>chiisakudx</strong></p>
-      <p>本規約に関するご質問は、Google Play ストアのアプリページよりお問い合わせください。</p>
+      <p>本規約に関するご質問は、ご利用のストア（Google Play または App Store）のアプリページよりお問い合わせください。</p>
     </section>
 
   </div>
@@ -685,14 +691,14 @@
     <section>
       <div class="section-label">Subscription</div>
       <h3>Buy Me a Coffee Plan</h3>
-      <p>The App offers an optional subscription called "Buy Me a Coffee" through Google Play.</p>
+      <p>The App offers an optional subscription called "Buy Me a Coffee" through Google Play (Android) or the App Store (iOS).</p>
       <ul>
-        <li>Subscriptions are processed through the Google Play billing system.</li>
+        <li>Subscriptions are processed through the Google Play or App Store billing system.</li>
         <li>Plan-exclusive features are available while your subscription is active.</li>
-        <li>You may cancel at any time through your Google Play subscription settings.</li>
+        <li>You may cancel at any time through your subscription settings on Google Play or the App Store.</li>
         <li>Plan features will end at the next billing date after cancellation.</li>
-        <li>Refunds are subject to Google Play's refund policy. Direct refund requests to the developer cannot be accommodated.</li>
-        <li>The developer may modify plan features or pricing. Any such changes will be communicated through the App or the Google Play Store listing with reasonable advance notice before taking effect.</li>
+        <li>Refunds are subject to the refund policy of Google Play or the App Store. Direct refund requests to the developer cannot be accommodated.</li>
+        <li>The developer may modify plan features or pricing. Any such changes will be communicated through the App or the Google Play / App Store listing with reasonable advance notice before taking effect.</li>
       </ul>
     </section>
 
@@ -704,7 +710,7 @@
       <ul>
         <li>Loss or corruption of data</li>
         <li>Damages arising from use or inability to use the App</li>
-        <li>Issues related to third-party services (e.g., Google Play)</li>
+        <li>Issues related to third-party services (e.g., Google Play, App Store)</li>
         <li>Effects caused by device or OS issues</li>
       </ul>
     </section>
@@ -712,13 +718,13 @@
     <section>
       <div class="section-label">Changes to Terms</div>
       <h3>Updates to These Terms</h3>
-      <p>The developer may update these Terms at any time. Material changes will be communicated through App updates or the Google Play Store listing. Continued use of the App after changes take effect constitutes acceptance of the updated Terms.</p>
+      <p>The developer may update these Terms at any time. Material changes will be communicated through App updates or the Google Play / App Store listing. Continued use of the App after changes take effect constitutes acceptance of the updated Terms.</p>
     </section>
 
     <section>
       <div class="section-label">Service Discontinuation</div>
       <h3>If the App Is Discontinued</h3>
-      <p>If the developer decides to discontinue the App, notice will be provided through the Google Play Store listing where reasonably possible. Because all data is stored on your device, your installed App and its data will remain on your device after distribution ends. We strongly recommend exporting a backup before any anticipated discontinuation.</p>
+      <p>If the developer decides to discontinue the App, notice will be provided through the Google Play / App Store listing where reasonably possible. Because all data is stored on your device, your installed App and its data will remain on your device after distribution ends. We strongly recommend exporting a backup before any anticipated discontinuation.</p>
     </section>
 
     <section>
@@ -731,7 +737,7 @@
       <div class="section-label">Contact</div>
       <h3>Get in Touch</h3>
       <p><strong>chiisakudx</strong></p>
-      <p>For questions about these Terms, please contact us through the App's page on the Google Play Store.</p>
+      <p>For questions about these Terms, please contact us through the App's page on Google Play or the App Store.</p>
     </section>
 
   </div>
