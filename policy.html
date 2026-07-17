@@ -378,6 +378,7 @@
         <tr><td>テーマ・言語設定</td><td>SharedPreferences</td><td>アプリ設定の保持</td></tr>
         <tr><td>背景画像</td><td>アプリドキュメントディレクトリ</td><td>Dessertテーマのカスタマイズ（有料機能）</td></tr>
         <tr><td>サブスクリプション購入状態</td><td>SharedPreferences</td><td>おやつ代を支援プランの適用状態管理</td></tr>
+        <tr><td>他アプリの共有機能から受け取った下書き（サービス名・URL・取得元アプリ名・明示的に渡された場合の識別子、またはメモ本文）</td><td>デバイス内 SQLite</td><td>ユーザーが内容を確認し正式に保存するまでの一時データ。パスワード・ワンタイムコード・復旧コードはこの経路で受け取ることは一切ありません</td></tr>
       </table>
     </section>
 
@@ -391,8 +392,9 @@
         <tr><td>おやつ代を支援プランのご購入時</td><td>Google Play 課金システム（Google のプライバシーポリシーが適用されます）</td></tr>
         <tr><td>バックアップのエクスポート操作時</td><td>ユーザーが選択した共有先（OS標準シェアシート経由・ユーザーの意思による操作）</td></tr>
         <tr><td>登録したアカウントのURLを開く操作時</td><td>ユーザーが登録したURL（ブラウザ経由・ユーザーの意思による操作）</td></tr>
+        <tr><td>他アプリの共有メニューから「Dessert」を選択した時</td><td>共有元アプリ（OS標準共有シート経由・ユーザーの意思による操作）</td></tr>
       </table>
-      <p style="margin-top:12px;">いずれもユーザーが能動的に操作した場合のみ発生し、開発者はその内容にアクセスしません。</p>
+      <p style="margin-top:12px;">いずれもユーザーが能動的に操作した場合のみ発生し、開発者はその内容にアクセスしません。共有受信機能は、ブラウザやアプリの共有メニューでユーザー自身が「Dessert」を選んだ時にだけ動作し、本アプリがログイン状況やクリップボード、閲覧履歴を監視・収集することはありません。共有内容は受け取り前に必ず確認画面に表示され、明示的に選択するまでデータは作成されません。</p>
     </section>
 
     <section>
@@ -462,6 +464,7 @@
         <tr><td>Theme &amp; language settings</td><td>SharedPreferences</td><td>App preferences</td></tr>
         <tr><td>Background image</td><td>App documents directory</td><td>Dessert theme customization (paid feature)</td></tr>
         <tr><td>Subscription status</td><td>SharedPreferences</td><td>Buy Me a Coffee plan state management</td></tr>
+        <tr><td>Drafts received from another app's share menu (service name, URL, source app name, an identifier only if explicitly provided, or memo text)</td><td>On-device SQLite</td><td>Temporary data held until you review and formally save it. Passwords, one-time codes, and recovery codes are never received through this path</td></tr>
       </table>
     </section>
 
@@ -475,8 +478,9 @@
         <tr><td>Purchasing the Buy Me a Coffee plan</td><td>Google Play billing system (Google's Privacy Policy applies)</td></tr>
         <tr><td>Exporting a backup</td><td>Destination chosen by the user via OS share sheet (user-initiated only)</td></tr>
         <tr><td>Opening a registered account URL</td><td>The URL registered by the user (via browser, user-initiated only)</td></tr>
+        <tr><td>Choosing "Dessert" from another app's share menu</td><td>The source app (via the OS standard share sheet, user-initiated only)</td></tr>
       </table>
-      <p style="margin-top:12px;">All of the above occur only when you actively initiate the action. The developer never receives or accesses this data.</p>
+      <p style="margin-top:12px;">All of the above occur only when you actively initiate the action. The developer never receives or accesses this data. The share-receiving feature only activates when you personally choose "Dessert" from a browser or app's share menu — Dessert never monitors your login activity, clipboard, or browsing history. Shared content is always shown on a confirmation screen before it is received, and nothing is created until you explicitly choose to add it.</p>
     </section>
 
     <section>
@@ -763,6 +767,11 @@
         <div class="faq-q">Q. 機種変更・端末の初期化をした場合、データはどうなりますか？</div>
         <div class="faq-a">データは端末内にのみ保存されているため、機種変更・初期化を行うと引き継がれません。事前に設定画面からJSONファイルとしてエクスポートし、新しい端末でインポートすることでデータを移行できます（おやつ代を支援プラン限定）。</div>
       </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. 他のアプリから共有した内容を受け取る機能について教えてください</div>
+        <div class="faq-a">ブラウザや他のアプリの共有メニューから「Dessert」を選ぶと、共有した内容をメモまたはアカウントの下書きとして一時的に保存できます。共有前には必ず内容を確認する画面が表示され、ユーザーが明示的に選択するまでデータは作成されません。パスワード・ワンタイムコード・復旧コードなどの機微情報を取得することは一切なく、Dessertがログイン状況やクリップボード、閲覧履歴を監視することもありません。受け取った内容は下書きとして保存され、内容を確認して正式に保存するまで通常のアカウント・メモ一覧には表示されません。</div>
+      </div>
     </section>
 
     <section>
@@ -871,6 +880,11 @@
       <div class="faq-item">
         <div class="faq-q">Q. What happens to my data if I change devices or reset my phone?</div>
         <div class="faq-a">Since data is stored only on your device, it won't transfer automatically. You can migrate data by exporting a JSON file from your old device and importing it on your new device (Buy Me a Coffee plan required).</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. What is the "receive shared content from other apps" feature?</div>
+        <div class="faq-a">When you choose "Dessert" from a browser or another app's share menu, the shared content can be saved as a memo draft or an account draft. A confirmation screen is always shown before anything is received, and nothing is created until you explicitly choose to add it. Passwords, one-time codes, and recovery codes are never collected through this feature, and Dessert never monitors your login activity, clipboard, or browsing history. Received drafts are held separately and never appear in your regular account or memo lists until you review and formally save them.</div>
       </div>
     </section>
 
