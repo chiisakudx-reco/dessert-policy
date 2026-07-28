@@ -354,7 +354,7 @@
 <div id="privacy" class="page-section">
   <div class="page-section-header">
     <h2>プライバシーポリシー</h2>
-    <div class="meta">最終更新: 2026年6月3日</div>
+    <div class="meta">最終更新: 2026年7月28日</div>
   </div>
 
   <div id="ja-privacy" class="lang-ja">
@@ -376,7 +376,7 @@
         <tr><td>パスワード本体</td><td>暗号化ストレージ（AES-256）</td><td>安全なパスワード保管</td></tr>
         <tr><td>パスワード履歴</td><td>SQLite（参照キーのみ）＋ 暗号化ストレージ</td><td>最大3世代分の履歴管理</td></tr>
         <tr><td>テーマ・言語設定</td><td>SharedPreferences</td><td>アプリ設定の保持</td></tr>
-        <tr><td>背景画像</td><td>アプリドキュメントディレクトリ</td><td>Dessertテーマのカスタマイズ（有料機能）</td></tr>
+        <tr><td>背景画像</td><td>アプリドキュメントディレクトリ</td><td>Dessertテーマのカスタム背景画像</td></tr>
         <tr><td>サブスクリプション購入状態</td><td>SharedPreferences</td><td>おやつ代を支援プランの適用状態管理</td></tr>
         <tr><td>メモ・カレンダー情報（タイトル・本文・日時・タグ・繰り返し設定等）</td><td>デバイス内 SQLite</td><td>メモカレンダー機能・通知/アラームのスケジュール管理</td></tr>
         <tr><td>家族・友人の情報（氏名・グループ・誕生日）</td><td>デバイス内 SQLite</td><td>カレンダー・ウィジェットへの誕生日表示、誕生日通知。<strong>ご本人以外の第三者に関する情報が含まれる場合があります</strong>が、外部への送信・共有は一切行いません</td></tr>
@@ -412,7 +412,8 @@
       <h3>本アプリが利用する権限</h3>
       <table>
         <tr><th>権限</th><th>利用目的</th></tr>
-        <tr><td>READ_EXTERNAL_STORAGE（Android 12以下）<br>iOS: 権限宣言不要（システム標準のフォトピッカーを使用）</td><td>Dessertテーマのカスタム背景画像を端末のフォトライブラリから選択するためにのみ使用します。選択した画像はデバイス内にのみ保存され、外部に送信されることはありません。Android 13以降はシステム標準のフォトピッカーを使用するため、この権限は不要です</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE（Android 12以下）<br>写真ライブラリ（iOS: NSPhotoLibraryUsageDescription）</td><td>Dessertテーマのカスタム背景画像を端末のフォトライブラリから選択するためにのみ使用します。選択した画像はデバイス内にのみ保存され、外部に送信されることはありません。Android 13以降はシステム標準のフォトピッカーを使用するため、この権限は不要です</td></tr>
+        <tr><td>カメラ・位置情報（iOS: NSCameraUsageDescription／NSLocationWhenInUseUsageDescription）</td><td>本アプリはカメラ・位置情報を一切使用しません。画像選択に使用するライブラリの仕様上、iOS側で権限の説明文を宣言する必要があるため表示されますが、これらの機能を実際に呼び出すことはありません</td></tr>
         <tr><td>POST_NOTIFICATIONS（Android）<br>iOS: 実行時の通知許可（アラート・サウンド）</td><td>メモの通知・アラーム機能をお使いいただくために使用します。許可しなくても本アプリの他の機能はご利用いただけます</td></tr>
         <tr><td>SCHEDULE_EXACT_ALARM（Android）</td><td>指定した時刻に正確に通知・アラームを届けるために使用します</td></tr>
         <tr><td>RECEIVE_BOOT_COMPLETED（Android）</td><td>端末を再起動した後も、設定済みの通知・アラームが引き続き機能するようにするために使用します</td></tr>
@@ -467,7 +468,7 @@
         <tr><td>Passwords</td><td>Encrypted storage (AES-256)</td><td>Secure password keeping</td></tr>
         <tr><td>Password history</td><td>SQLite (reference keys) + Encrypted storage</td><td>Up to 3 generations of history</td></tr>
         <tr><td>Theme &amp; language settings</td><td>SharedPreferences</td><td>App preferences</td></tr>
-        <tr><td>Background image</td><td>App documents directory</td><td>Dessert theme customization (paid feature)</td></tr>
+        <tr><td>Background image</td><td>App documents directory</td><td>Custom background image for the Dessert theme</td></tr>
         <tr><td>Subscription status</td><td>SharedPreferences</td><td>Buy Me a Coffee plan state management</td></tr>
         <tr><td>Memo &amp; calendar data (title, body, date/time, tags, repeat settings, etc.)</td><td>On-device SQLite</td><td>Powers the Memo Calendar feature and notification/alarm scheduling</td></tr>
         <tr><td>Family &amp; friends info (name, group label, birthday)</td><td>On-device SQLite</td><td>Displays birthdays on the calendar and widgets, and sends birthday notifications. <strong>May include information about people other than you</strong>, but it is never transmitted or shared externally</td></tr>
@@ -503,7 +504,8 @@
       <h3>Permissions Used by This App</h3>
       <table>
         <tr><th>Permission</th><th>Purpose</th></tr>
-        <tr><td>READ_EXTERNAL_STORAGE (Android 12 and below)<br>iOS: no permission declaration required (uses the system's standard photo picker)</td><td>Used solely to select a custom background image from your photo library for the Dessert theme. The selected image is stored on-device only and is never transmitted externally. On Android 13 and above, this permission is not needed since the app uses the system's standard photo picker</td></tr>
+        <tr><td>READ_EXTERNAL_STORAGE (Android 12 and below)<br>Photo Library (iOS: NSPhotoLibraryUsageDescription)</td><td>Used solely to select a custom background image from your photo library for the Dessert theme. The selected image is stored on-device only and is never transmitted externally. On Android 13 and above, this permission is not needed since the app uses the system's standard photo picker</td></tr>
+        <tr><td>Camera &amp; Location (iOS: NSCameraUsageDescription / NSLocationWhenInUseUsageDescription)</td><td>This app never uses the camera or location. These are declared only because the image-picker library we use requires it on iOS; the app never actually invokes these features</td></tr>
         <tr><td>POST_NOTIFICATIONS (Android)<br>iOS: runtime notification authorization (alert, sound)</td><td>Used to enable the memo notification and alarm features. The rest of the app remains fully usable if you decline</td></tr>
         <tr><td>SCHEDULE_EXACT_ALARM (Android)</td><td>Used to deliver notifications and alarms at the exact time you specify</td></tr>
         <tr><td>RECEIVE_BOOT_COMPLETED (Android)</td><td>Used to ensure scheduled notifications and alarms keep working after the device restarts</td></tr>
@@ -754,7 +756,7 @@
 <div id="faq" class="page-section">
   <div class="page-section-header">
     <h2>よくある質問</h2>
-    <div class="meta">最終更新: 2026年6月3日</div>
+    <div class="meta">最終更新: 2026年7月28日</div>
   </div>
 
   <div id="ja-faq" class="lang-ja">
@@ -834,21 +836,34 @@
             <tr><td>タグランチャー（閲覧・起動）</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>お気に入り・あまり使わないセクション</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>タグの作成・設定</td><td>&#10007;</td><td>&#10003;</td></tr>
-            <tr><td>コスト管理（グラフ・集計）</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>コスト管理（グラフ・集計）</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>バックアップ・復元</td><td>&#10007;</td><td>&#10003;</td></tr>
-            <tr><td>カスタム背景画像</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>カスタム背景画像</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>メモ・カレンダー機能（通知・繰り返し・タグ付け）</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>家族・友人の誕生日管理</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>ホーム画面ウィジェット</td><td>&#10003;</td><td>&#10003;</td></tr>
           </table>
         </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Q. プランを解約するとデータや機能はどうなりますか？</div>
-        <div class="faq-a">解約後もこれまで登録したデータはすべて保持されます。ただし、タグ・コスト管理・バックアップなどのプラン限定機能はご利用いただけなくなります。</div>
+        <div class="faq-a">解約後もこれまで登録したデータはすべて保持されます。ただし、タグの作成・編集・削除とバックアップ・復元（エクスポート/インポート）はプラン限定機能のためご利用いただけなくなります。</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Q. 一度課金すれば永続的に使えますか？</div>
         <div class="faq-a">おやつ代を支援プランは<strong>月額サブスクリプション</strong>です。毎月の継続課金が必要です。解約するとプラン限定機能が利用できなくなります。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. 複数の通貨に対応していますか？</div>
+        <div class="faq-a">はい。日本円（JPY）・台湾ドル（TWD）・米ドル（USD）・韓国ウォン（KRW）・カスタム通貨（任意の単位を入力）に対応しています。韓国語表示時はデフォルト通貨がKRWに設定されます。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. Windows版にも同じ料金プランがありますか？</div>
+        <div class="faq-a">Windows版はサブスクリプション課金の仕組みを提供していないため、タグの作成やバックアップ・復元を含む<strong>すべての機能を無料</strong>でご利用いただけます。</div>
       </div>
     </section>
 
@@ -864,6 +879,21 @@
       <div class="faq-item">
         <div class="faq-q">Q. タグランチャーとは何ですか？</div>
         <div class="faq-a">タグを使ってアカウントをグループ化し、ワンタップでURLを開いたりIDをコピーしたりできる機能です。仕事・プライベート・副業など、用途別にまとめておくと素早くアクセスできます。タグランチャーの閲覧・起動は無料でご利用いただけます（タグの作成はおやつ代を支援プランが必要です）。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. メモ・カレンダー機能について教えてください</div>
+        <div class="faq-a">日付ごとにメモを記録できるカレンダー機能です。通知・アラームでのお知らせ、毎日/毎週/隔週/毎月/毎年などの繰り返し設定、タグ付けに対応しています。日付を設定しない「メモ一覧」としての利用も可能です。すべて無料でご利用いただけます。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. 家族・友人の誕生日を管理できますか？</div>
+        <div class="faq-a">マイプロフィールの設定画面から、家族・友人の氏名・グループ・誕生日を登録できます。登録した誕生日はカレンダー・ホーム画面ウィジェットに表示され、通知でお知らせします。ご本人以外の情報を扱う機能のため、データは他のデータと同様に端末内にのみ保存され、外部に送信・共有されることはありません。すべて無料でご利用いただけます。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. ホーム画面にウィジェットを置けますか？（Android / iOS）</div>
+        <div class="faq-a">対応しています。月間カレンダーを表示する「Dessert 月」ウィジェットと、当日の予定を一覧表示する「今日の予定」ウィジェットをご利用いただけます。祝日・誕生日・メモの内容がテーマに合わせて表示され、タップすると該当日のカレンダー画面に直接移動します。</div>
       </div>
     </section>
 
@@ -948,21 +978,34 @@
             <tr><td>Tag Launcher (view &amp; launch)</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>Favorites &amp; Rarely Used sections</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>Tag creation &amp; assignment</td><td>&#10007;</td><td>&#10003;</td></tr>
-            <tr><td>Cost management (graphs &amp; totals)</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>Cost management (graphs &amp; totals)</td><td>&#10003;</td><td>&#10003;</td></tr>
             <tr><td>Backup &amp; restore</td><td>&#10007;</td><td>&#10003;</td></tr>
-            <tr><td>Custom background image</td><td>&#10007;</td><td>&#10003;</td></tr>
+            <tr><td>Custom background image</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>Memo Calendar (notifications, repeat, tags)</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>Family &amp; friends' birthdays</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td>Home screen widgets</td><td>&#10003;</td><td>&#10003;</td></tr>
           </table>
         </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Q. What happens to my data and features if I cancel the plan?</div>
-        <div class="faq-a">All your registered data is retained after cancellation. However, plan-exclusive features such as tags, cost management, and backup will no longer be available.</div>
+        <div class="faq-a">All your registered data is retained after cancellation. However, creating/editing/deleting tags and backup &amp; restore (export/import) are plan-exclusive features and will no longer be available.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Q. Is it a one-time purchase or a subscription?</div>
         <div class="faq-a">The Buy Me a Coffee plan is a <strong>monthly subscription</strong>. It requires ongoing monthly payments. Cancelling will disable plan-exclusive features.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. Does Dessert support multiple currencies?</div>
+        <div class="faq-a">Yes — Japanese Yen (JPY), Taiwan Dollar (TWD), US Dollar (USD), Korean Won (KRW), and a custom currency of your choice. The default currency is set to KRW automatically when the app language is Korean.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. Is the Windows version subject to the same pricing plan?</div>
+        <div class="faq-a">The Windows version does not offer in-app purchases, so <strong>all features — including tag creation and backup/restore — are free to use</strong>.</div>
       </div>
     </section>
 
@@ -978,6 +1021,21 @@
       <div class="faq-item">
         <div class="faq-q">Q. What is the Tag Launcher?</div>
         <div class="faq-a">The Tag Launcher lets you group accounts by tag and quickly open URLs or copy IDs with a single tap. Organize by work, personal, or side projects for fast access. Viewing and launching is free; creating tags requires the Buy Me a Coffee plan.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. What is the Memo Calendar feature?</div>
+        <div class="faq-a">Memo Calendar lets you record memos tied to specific dates. It supports notifications and alarms, repeat schedules (daily, weekly, biweekly, monthly, yearly, etc.), and tagging. You can also create memos with no fixed date for a plain to-do list. This feature is completely free.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. Can I track birthdays for family and friends?</div>
+        <div class="faq-a">Yes. From your profile settings, you can register the name, group, and birthday of family members and friends. Registered birthdays appear on the calendar and home screen widgets, and trigger notifications. Since this feature may involve information about people other than yourself, it is stored on-device only, just like your other data, and is never transmitted or shared externally. This feature is free.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q. Are home screen widgets available (Android / iOS)?</div>
+        <div class="faq-a">Yes. Dessert offers a monthly calendar widget ("Dessert Month") and a "Today's Agenda" widget showing your schedule for the day. Both display holidays, birthdays, and memos styled to match your theme, and tapping them takes you directly to that day in the calendar.</div>
       </div>
     </section>
 
