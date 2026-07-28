@@ -378,6 +378,8 @@
         <tr><td>テーマ・言語設定</td><td>SharedPreferences</td><td>アプリ設定の保持</td></tr>
         <tr><td>背景画像</td><td>アプリドキュメントディレクトリ</td><td>Dessertテーマのカスタマイズ（有料機能）</td></tr>
         <tr><td>サブスクリプション購入状態</td><td>SharedPreferences</td><td>おやつ代を支援プランの適用状態管理</td></tr>
+        <tr><td>メモ・カレンダー情報（タイトル・本文・日時・タグ・繰り返し設定等）</td><td>デバイス内 SQLite</td><td>メモカレンダー機能・通知/アラームのスケジュール管理</td></tr>
+        <tr><td>家族・友人の情報（氏名・グループ・誕生日）</td><td>デバイス内 SQLite</td><td>カレンダー・ウィジェットへの誕生日表示、誕生日通知。<strong>ご本人以外の第三者に関する情報が含まれる場合があります</strong>が、外部への送信・共有は一切行いません</td></tr>
         <tr><td>他アプリの共有機能から受け取った下書き（サービス名・URL・取得元アプリ名・明示的に渡された場合の識別子、またはメモ本文）</td><td>デバイス内 SQLite</td><td>ユーザーが内容を確認し正式に保存するまでの一時データ。パスワード・ワンタイムコード・復旧コードはこの経路で受け取ることは一切ありません</td></tr>
       </table>
     </section>
@@ -467,6 +469,8 @@
         <tr><td>Theme &amp; language settings</td><td>SharedPreferences</td><td>App preferences</td></tr>
         <tr><td>Background image</td><td>App documents directory</td><td>Dessert theme customization (paid feature)</td></tr>
         <tr><td>Subscription status</td><td>SharedPreferences</td><td>Buy Me a Coffee plan state management</td></tr>
+        <tr><td>Memo &amp; calendar data (title, body, date/time, tags, repeat settings, etc.)</td><td>On-device SQLite</td><td>Powers the Memo Calendar feature and notification/alarm scheduling</td></tr>
+        <tr><td>Family &amp; friends info (name, group label, birthday)</td><td>On-device SQLite</td><td>Displays birthdays on the calendar and widgets, and sends birthday notifications. <strong>May include information about people other than you</strong>, but it is never transmitted or shared externally</td></tr>
         <tr><td>Drafts received from another app's share menu (service name, URL, source app name, an identifier only if explicitly provided, or memo text)</td><td>On-device SQLite</td><td>Temporary data held until you review and formally save it. Passwords, one-time codes, and recovery codes are never received through this path</td></tr>
       </table>
     </section>
